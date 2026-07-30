@@ -1053,8 +1053,8 @@ function initRecipes() {
       console.warn("Failed to fetch fresh recipes from server/Netlify, using cached version:", err);
     });
 
-  // Initialize Puter Sync if SDK is available
-  initPuterSync();
+  // Puter Sync disabled in favor of Git-based CMS workflow
+  // initPuterSync();
 }
 
 function initPuterSync() {
@@ -2143,21 +2143,38 @@ function setupEventListeners() {
             const formData = new FormData();
             formData.append('image', blob, file.name || 'image.jpg');
 
+            const submitBtn = document.getElementById('btn-recipe-form-submit');
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerText = 'Wgrywanie zdjęcia do chmury...';
+            }
+
             fetch('/api/upload-image', {
               method: 'POST',
               body: formData
             })
-            .then(res => res.json())
+            .then(res => {
+              if (!res.ok) throw new Error("HTTP error " + res.status);
+              return res.json();
+            })
             .then(data => {
               if (data.status === 'success') {
                 formImageDataUrl = data.imagePath;
                 console.log("Image saved to server:", formImageDataUrl);
               } else {
                 console.error("Server image upload failed:", data);
+                alert("Nie udało się zapisać zdjęcia w chmurze Catbox.");
               }
             })
             .catch(err => {
               console.error("Error uploading image to server:", err);
+              alert("Błąd połączenia podczas wgrywania zdjęcia: " + err.message);
+            })
+            .finally(() => {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Zapisz Przepis';
+              }
             });
           } catch (err) {
             console.error("Error preparing image upload:", err);
