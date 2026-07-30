@@ -1027,22 +1027,30 @@ function initRecipes() {
     localStorage.setItem('przepisnik_db_version', DB_VERSION);
   }
 
-  // Load local recipes first to show UI immediately
+  // Load local recipes first to show UI immediately (offline/cached fallback)
   loadLocalRecipes();
 
-  // Try to sync with local Python server (if running)
-  fetch('/api/recipes')
-    .then(res => res.json())
+  // Detect environment: local editing server or Netlify static deploy
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const fetchUrl = isLocal ? '/api/recipes' : `recipes.json?t=${Date.now()}`;
+
+  // Fetch the latest database from server/Netlify
+  fetch(fetchUrl)
+    .then(res => {
+      if (!res.ok) throw new Error("HTTP error " + res.status);
+      return res.json();
+    })
     .then(serverRecipes => {
       if (serverRecipes && serverRecipes.length > 0) {
         recipes = serverRecipes;
         applyLocalMigrations();
         localStorage.setItem('przepisnik_recipes', JSON.stringify(recipes));
         renderUI();
+        console.log("Recipes successfully loaded and updated from server/Netlify.");
       }
     })
     .catch(err => {
-      console.log("Local Python server not available or returned error.");
+      console.warn("Failed to fetch fresh recipes from server/Netlify, using cached version:", err);
     });
 
   // Initialize Puter Sync if SDK is available
