@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gabby's Cookbook - Twój osobisty, cyfrowy przepiśnik na tylko mega sprawdzone przepisy z zeszytu, TikToka i internetu.">
+  <title>Gabby's Cookbook — Moje Sprawdzone Przepisy</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=5.3">
+
+</head>
+<body>
+
+  <!-- App Container -->
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-top-row">
+        <div class="header-left-meta">
+          <span class="meta-status-dot"></span>
+          <span>Gabby's Cookspace</span>
+        </div>
+        <div class="header-actions">
+          <button id="btn-cloud-sync" class="btn-outline" aria-label="Synchronizacja chmurowa" style="display: none;">
+            <span>☁️</span> <span id="cloud-status-text">Chmura</span>
+          </button>
+          <button id="btn-add-recipe-open" class="btn-outline" aria-label="Dodaj nowy przepis">
+            Dodaj Przepis
+          </button>
+          <div class="dropdown">
+            <button id="btn-backup-menu" class="btn-outline" aria-label="Kopia zapasowa menu">
+              Kopia
+            </button>
+            <div id="backup-dropdown-content" class="dropdown-content">
+              <button id="btn-export-data">Eksportuj przepisy</button>
+              <label for="import-file-input" class="dropdown-label-btn">
+                Importuj przepisy
+                <input type="file" id="import-file-input" accept=".json" style="display: none;">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="logo-area">
+        <h1 class="logo-title">gabby's cook<span class="red-text">book</span></h1>
+        <p class="logo-subtitle">Moje najlepsze przepisy</p>
+      </div>
+    </header>
+
+    <!-- Centered Search Section -->
+    <section class="search-section-rozkoszny">
+      <div class="search-row-centered">
+        <div class="search-box-wrap">
+          <input type="text" id="search-input" placeholder="Na co masz ochotę?" aria-label="Wyszukaj przepis">
+          <button id="btn-clear-search" class="clear-search-btn" style="display: none;">x</button>
+          <svg class="search-lupa-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <button id="btn-toggle-filters" class="btn-filters-toggle-black">Filtruj</button>
+      </div>
+
+      <!-- Collapsible Filters Drawer -->
+      <div id="filters-drawer" class="filters-drawer-container">
+        <div class="drawer-header">
+          <span class="drawer-title">Filter Search</span>
+          <button class="btn-text edit-filters-trigger" title="Edytuj filtry">Edytuj</button>
+        </div>
+        <div class="drawer-grid">
+          <!-- TYP DIETY -->
+          <div class="drawer-filter-group">
+            <h3 class="drawer-filter-title">Typ diety</h3>
+            <div class="sidebar-checkbox-list" id="sidebar-list-dieta">
+              <!-- Dynamic diet options -->
+            </div>
+          </div>
+
+          <!-- SZYBKOSC -->
+          <div class="drawer-filter-group">
+            <h3 class="drawer-filter-title">Szybkość</h3>
+            <div class="sidebar-checkbox-list" id="sidebar-list-szybkosc">
+              <!-- Dynamic speed options -->
+            </div>
+          </div>
+
+          <!-- PORA ROKU -->
+          <div class="drawer-filter-group">
+            <h3 class="drawer-filter-title">Pora roku</h3>
+            <div class="sidebar-checkbox-list" id="sidebar-list-pora-roku">
+              <!-- Dynamic season options -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centered Categories Bar -->
+      <div class="categories-bar-container">
+        <div class="category-pills" id="category-pills" role="radiogroup" aria-label="Kategorie przepisów">
+          <button class="category-pill active" data-category="all" role="radio" aria-checked="true">Wszystkie</button>
+          <button class="category-pill" data-category="breakfast" role="radio" aria-checked="false">Śniadanie</button>
+          <button class="category-pill" data-category="lunch" role="radio" aria-checked="false">Obiad</button>
+          <button class="category-pill" data-category="supper" role="radio" aria-checked="false">Kolacja</button>
+          <button class="category-pill" data-category="snack" role="radio" aria-checked="false">Przekąska</button>
+          <button class="category-pill" data-category="dessert" role="radio" aria-checked="false">Deser</button>
+          <button class="category-pill" data-category="other" role="radio" aria-checked="false">Inne</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered Tab Switcher in Rozkoszny Divider style -->
+    <div class="recipe-tabs-divider">
+      <div class="recipe-tabs-container" id="recipe-tabs-divider-menu">
+        <button class="recipe-tab" data-tab="untested" role="tab" aria-selected="false">Do Przetestowania</button>
+        <span class="tab-separator">•</span>
+        <button class="recipe-tab active" data-tab="tested" role="tab" aria-selected="true">♥</button>
+        <span class="tab-separator">•</span>
+        <button class="recipe-tab" data-tab="all" role="tab" aria-selected="false">Wszystkie</button>
+      </div>
+    </div>
+
+    <!-- Main Section: Centered Recipes Grid -->
+    <main class="app-main single-column">
+      <section class="recipes-feed-section">
+        <div id="no-recipes-view" class="empty-state" style="display: none;">
+          <h3>Brak przepisów</h3>
+          <p>Nie masz jeszcze przepisów pasujących do wybranych filtrów. Dodaj nowy przepis lub zresetuj filtry!</p>
+          <button id="btn-reset-filters" class="btn-secondary">Resetuj filtry</button>
+        </div>
+        
+        <div id="recipes-grid" class="recipes-grid">
+          <!-- Recipe cards will be dynamically rendered here -->
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- MODAL: CONFIGURE FILTERS -->
+  <div id="filters-config-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="filters-config-title">
+      <header class="modal-header">
+        <h2 id="filters-config-title">Konfiguracja Filtrów</h2>
+        <button id="btn-filters-config-close" class="btn-close" aria-label="Zamknij">x</button>
+      </header>
+      
+      <div class="modal-body">
+        <p class="modal-help-text" style="font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+          Tutaj możesz dodawać i usuwać opcje filtrowania widoczne w panelu bocznym.
+        </p>
+        
+        <!-- Typ diety configuration -->
+        <div class="config-filter-section">
+          <h3 class="config-section-title">Typ diety</h3>
+          <div class="config-items-list" id="config-list-dieta"></div>
+          <div class="config-add-row">
+            <input type="text" id="input-add-dieta" placeholder="Dodaj nową dietę (np. Bez glutenu)...">
+            <button id="btn-add-dieta" class="btn-outline btn-sm">Dodaj</button>
+          </div>
+        </div>
+
+        <!-- Szybkość configuration -->
+        <div class="config-filter-section">
+          <h3 class="config-section-title">Szybkość</h3>
+          <div class="config-items-list" id="config-list-szybkosc"></div>
+          <div class="config-add-row">
+            <input type="text" id="input-add-szybkosc" placeholder="Dodaj nową szybkość (np. do 15 min)...">
+            <button id="btn-add-szybkosc" class="btn-outline btn-sm">Dodaj</button>
+          </div>
+        </div>
+
+        <!-- Pora roku configuration -->
+        <div class="config-filter-section">
+          <h3 class="config-section-title">Pora roku</h3>
+          <div class="config-items-list" id="config-list-pora-roku"></div>
+          <div class="config-add-row">
+            <input type="text" id="input-add-pora-roku" placeholder="Dodaj nową porę roku (np. Jesień)...">
+            <button id="btn-add-pora-roku" class="btn-outline btn-sm">Dodaj</button>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="modal-footer" style="margin-top: 1.5rem;">
+        <button id="btn-filters-config-save" class="btn-primary" style="width: 100%;">Zapisz Zmiany</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT RECIPE -->
+  <div id="recipe-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-header">
+        <h2 id="modal-title">Dodaj Nowy Przepis</h2>
+        <button id="btn-recipe-modal-close" class="btn-close" aria-label="Zamknij formularz">x</button>
+      </header>
+      
+      <form id="recipe-form" class="modal-body">
+        <input type="hidden" id="form-recipe-id">
+        
+        <!-- Recipe Title -->
+        <div class="form-group">
+          <label for="form-title" class="required">Nazwa przepisu</label>
+          <input type="text" id="form-title" required placeholder="np. Domowa Szarlotka z kruszonką..." maxlength="80">
+        </div>
+
+        <!-- Recipe Category -->
+        <div class="form-group">
+          <label for="form-category" class="required">Kategoria</label>
+          <select id="form-category" required>
+            <option value="breakfast">🥞 Śniadanie</option>
+            <option value="lunch" selected>🍲 Obiad</option>
+            <option value="supper">🥗 Kolacja</option>
+            <option value="snack">🥨 Przekąska</option>
+            <option value="dessert">🍰 Deser</option>
+            <option value="other">🌐 Inne</option>
+          </select>
+        </div>
+
+        <!-- External Link (TikTok, Web etc.) -->
+        <div class="form-group">
+          <label for="form-link">Link (np. TikTok, Instagram, blog kulinarny)</label>
+          <div class="input-with-icon">
+            
+            <input type="url" id="form-link" placeholder="https://www.tiktok.com/@... lub inny adres">
+          </div>
+        </div>
+
+        <!-- Recipe Image Upload -->
+        <div class="form-group">
+          <label>Zdjęcie Przepisu</label>
+          <div class="image-upload-wrapper">
+            <div class="image-upload-preview" id="form-image-preview">
+              
+              <span>Wybierz lub przeciągnij zdjęcie</span>
+            </div>
+            <input type="file" id="form-image-input" accept="image/*" style="display: none;">
+            <div style="display: flex; gap: 0.5rem; width: 100%;">
+              <button type="button" id="btn-upload-trigger" class="btn-secondary btn-sm" style="flex: 1;">Wybierz zdjęcie</button>
+              <button type="button" id="btn-remove-image" class="btn-danger btn-sm" style="display: none; flex: 1;">Usuń zdjęcie</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingredients List (Textarea format for zero friction) -->
+        <div class="form-group">
+          <label for="form-ingredients">Składniki (jeden w nowej linijce)</label>
+          <textarea id="form-ingredients" rows="5" placeholder="np.&#10;2 szklanki mąki&#10;1 kostka masła&#10;4 jabłka"></textarea>
+          <span class="input-help">Wpisz składniki jeden pod drugim. Zostaną one automatycznie zamienione na interaktywną listę.</span>
+        </div>
+
+        <!-- Preparation Steps -->
+        <div class="form-group">
+          <label for="form-steps">Przygotowanie / Kroki (jeden w nowej linijce)</label>
+          <textarea id="form-steps" rows="5" placeholder="np.&#10;Zagnieć ciasto i odstaw do lodówki.&#10;Obierz jabłka i pokrój w kostkę.&#10;Piecz 45 minut w 180°C."></textarea>
+          <span class="input-help">Każda linijka tekstu będzie traktowana jako oddzielny krok w Trybie Gotowania.</span>
+        </div>
+
+        <!-- Cooking Notes / Tips -->
+        <div class="form-group">
+          <label for="form-notes">Wskazówki / Uwagi (jak ułatwić, co zmienić)</label>
+          <textarea id="form-notes" rows="3" placeholder="np. Dodać szczyptę cynamonu do jabłek. Następnym razem podwoić kruszonkę!"></textarea>
+        </div>
+
+        <!-- Tags -->
+        <div class="form-group">
+          <label for="form-tags">Tagi (oddzielone przecinkami lub spacjami)</label>
+          <div class="input-with-icon">
+            
+            <input type="text" id="form-tags" placeholder="np. Obiady, Deser, Szybkie, Mamy">
+          </div>
+        </div>
+
+        <!-- Tested Switch (Heart toggle) -->
+        <div class="form-group form-group-checkbox">
+          <label for="form-tested" class="checkbox-container">
+            <input type="checkbox" id="form-tested">
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-label">❤️ Oznacz jako Sprawdzony Klasyk (będzie wyróżniony)</span>
+          </label>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" id="btn-recipe-form-delete" class="btn-danger" style="display: none; margin-right: auto;">Usuń przepis</button>
+          <button type="button" id="btn-recipe-form-cancel" class="btn-secondary">Anuluj</button>
+          <button type="submit" id="btn-recipe-form-submit" class="btn-primary">Zapisz Przepis</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: COOKING MODE -->
+  <div id="cooking-modal" class="modal-backdrop cooking-theme" aria-hidden="true">
+    <div class="cooking-container" role="dialog" aria-modal="true" aria-labelledby="cooking-title">
+      
+      <!-- Top control bar -->
+      <header class="cooking-header">
+        <div class="cooking-header-left">
+          <span class="badge-tested" id="cooking-badge-tested">Klasyk</span>
+          <h2 id="cooking-title">Tytuł Przepisu</h2>
+        </div>
+        <div class="cooking-header-actions">
+          <button id="btn-cooking-edit" class="btn-outline-cooking" title="Edytuj ten przepis">
+            <span>Edytuj przepis</span>
+          </button>
+          <button id="btn-cooking-delete" class="btn-danger-cooking" title="Usuń ten przepis">
+            <span>Usuń przepis</span>
+          </button>
+          <button id="btn-wake-lock" class="btn-wake" title="Zapobiegaj wygaszaniu ekranu">
+            <span>Ekran czuwania</span>
+          </button>
+          <button id="btn-cooking-close" class="btn-close-cooking" aria-label="Zamknij tryb gotowania">x</button>
+        </div>
+      </header>
+
+      <!-- Hero image banner -->
+      <div class="cooking-hero" id="cooking-hero-image" style="display: none;"></div>
+
+      <!-- Main cooking layout -->
+      <div class="cooking-content">
+        
+        <!-- Left Column: Ingredients -->
+        <section class="cooking-ingredients-panel">
+          <h3>Składniki</h3>
+          <p class="section-help-text">Tapnij składnik, aby odznaczyć, że go masz:</p>
+          <ul id="cooking-ingredients-list" class="cooking-list-ingredients">
+            <!-- Dynamic ingredients -->
+          </ul>
+          
+          <div class="cooking-notes-box" id="cooking-notes-box-container" style="display: none;">
+            <h4>Twoje notatki:</h4>
+            <p id="cooking-notes-content">Wskazówki do przepisu...</p>
+          </div>
+
+          <div class="cooking-source-box" id="cooking-source-box-container" style="display: none;">
+            <a href="#" id="cooking-source-link" target="_blank" rel="noopener">
+              Otwórz oryginalne wideo / stronę
+            </a>
+          </div>
+        </section>
+
+        <!-- Right Column: Step by step -->
+        <section class="cooking-steps-panel">
+          <h3>Przygotowanie</h3>
+          <p class="section-help-text">Klikaj na kolejne kroki, aby zaznaczyć postęp:</p>
+          <ol id="cooking-steps-list" class="cooking-list-steps">
+            <!-- Dynamic steps -->
+          </ol>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast-notification" class="toast" aria-live="polite">
+    <span id="toast-message">Przepis zapisany pomyślnie!</span>
+  </div>
+
+  <!-- Puter Cloud SDK -->
+  <script src="https://js.puter.com/v2/"></script>
+  <!-- App Logic script -->
+  <script src="app.js?v=5.3"></script>
+</body>
+</html>
