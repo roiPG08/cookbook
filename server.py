@@ -147,6 +147,31 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_response(500)
                 self.end_headers()
                 self.wfile.write(str(e).encode('utf-8'))
+        elif self.path == '/api/publish':
+            try:
+                import subprocess
+                # Stage recipes.json
+                subprocess.run(['git', 'add', 'recipes.json'], check=True)
+                
+                # Check if there are changes to commit
+                status_res = subprocess.run(['git', 'status', '--porcelain', 'recipes.json'], capture_output=True, text=True)
+                if status_res.stdout.strip():
+                    subprocess.run(['git', 'commit', '-m', 'Update recipes from web panel'], check=True)
+                
+                # Push to remote GitHub repo
+                subprocess.run(['git', 'push', 'origin', 'main'], check=True)
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "success"}).encode('utf-8'))
+                return
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode('utf-8'))
+                return
         else:
             self.send_response(404)
             self.end_headers()

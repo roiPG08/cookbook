@@ -957,8 +957,64 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSidebarFilters();
   setupEventListeners();
   setupFiltersConfigListeners();
+  checkAdminAccess();
    // Initialize Lucide Icons
 });
+
+function checkAdminAccess() {
+  const isAdminMode = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  
+  const btnAdd = document.getElementById('btn-add-recipe-open');
+  const btnBackup = document.getElementById('btn-backup-menu');
+  const btnPublish = document.getElementById('btn-git-publish');
+  const btnCloud = document.getElementById('btn-cloud-sync');
+  const btnCookingEdit = document.getElementById('btn-cooking-edit');
+  const btnCookingDelete = document.getElementById('btn-cooking-delete');
+
+  if (isAdminMode) {
+    if (btnAdd) btnAdd.style.display = 'inline-flex';
+    if (btnBackup) btnBackup.style.display = 'inline-flex';
+    if (btnPublish) btnPublish.style.display = 'inline-flex';
+    if (btnCloud) btnCloud.style.display = 'none';
+    if (btnCookingEdit) btnCookingEdit.style.display = 'inline-flex';
+    if (btnCookingDelete) btnCookingDelete.style.display = 'inline-flex';
+
+    if (btnPublish) {
+      btnPublish.onclick = function() {
+        btnPublish.disabled = true;
+        const origText = btnPublish.innerHTML;
+        btnPublish.innerHTML = "<span>⏳</span> <span>Publikowanie...</span>";
+        
+        fetch('/api/publish', {
+          method: 'POST'
+        })
+        .then(res => res.json())
+        .then(data => {
+          btnPublish.disabled = false;
+          btnPublish.innerHTML = origText;
+          if (data.status === 'success') {
+            showToast("🚀 Zmiany wysłane do chmury! Będą widoczne w sieci za 30 sekund.");
+          } else {
+            alert("Błąd publikacji: " + data.message);
+          }
+        })
+        .catch(err => {
+          btnPublish.disabled = false;
+          btnPublish.innerHTML = origText;
+          console.error("Publish error:", err);
+          alert("Błąd połączenia z lokalnym serwerem: " + err);
+        });
+      };
+    }
+  } else {
+    if (btnAdd) btnAdd.style.display = 'none';
+    if (btnBackup) btnBackup.style.display = 'none';
+    if (btnPublish) btnPublish.style.display = 'none';
+    if (btnCloud) btnCloud.style.display = 'none';
+    if (btnCookingEdit) btnCookingEdit.style.display = 'none';
+    if (btnCookingDelete) btnCookingDelete.style.display = 'none';
+  }
+}
 
 let puterActive = false;
 
