@@ -619,12 +619,12 @@
     "id": "nalesniki",
     "title": "Naleśniki",
     "ingredients": [
-      "1 szklanka mąki pszennej",
-      "1 szklanka mleka",
-      "3/4 szklanki wody (np. gazowanej) lub mleka",
-      "2 duże jajka",
+      "1 jajko",
+      "szklanka mąki",
+      "szklanka mleka",
+      "1 łyżka oleju",
       "szczypta soli",
-      "3 łyżki oleju roślinnego lub roztopionego masła"
+      "0,5 szklanki wody gazowanej"
     ],
     "steps": [
       "Mąkę wsypać do miski, dodać mleko oraz wodę (gazowaną lub zwykłą) i wymieszać rózgą lub krótko zmiksować mikserem na jednolite ciasto bez grudek.",
@@ -640,5 +640,74 @@
     "createdAt": "2026-07-26T20:04:00.000Z",
     "tags": [],
     "image": "https://files.catbox.moe/dwdy8r.jpg"
+  },
+  {
+    "id": "1785598373964",
+    "title": "Ciasteczka Rumowe",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "0,25 margaryna roślina",
+      "150g  cukier puder",
+      "150g mąka pszenna",
+      "4 jajka",
+      "kakao",
+      "1 płaska łyżka proszku do pieczeni",
+      "Lukier na 3 blachy",
+      "0,25 kg więcej – cukier puder",
+      "1 zapach cytrynowy",
+      "4 łyżki woda ciepła przegotowana"
+    ],
+    "steps": [],
+    "notes": "Margarynę utrzeć do białości, do roztartej margaryny dodawać po 1 całym jajku, łyżeczkę cukru i mąki. \nCały czas miksując, aż do momentu zużycia składników. \nDodać pod koniec kakao i miksując do jednolitej masy. \nWylać na wysmarowaną tłuszczem blachę, około 0,5 cm wysokości. \nPiec ok. 20 min. \nNa gorące ciasto wylać lukier. \nKroić szklanką półksiężyce jak ostygnie.",
+    "tags": [
+      "mamy"
+    ],
+    "isTested": false,
+    "createdAt": "2026-08-01T15:32:53.964Z"
+  },
+  {
+    "id": "1785599027749",
+    "title": "Ciasteczka Rumowe",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "* Ciasto",
+      "0,25 margaryna roślinna",
+      "150g cukier puder",
+      "150g mąka pszenna",
+      "4 jajka",
+      "kakao",
+      "1 płaska łyżka proszku do pieczenia",
+      "* Lukier na 3 blachy",
+      "0,25 kg więcej – cukier puder",
+      "1 zapach cytrynowy",
+      "4 łyżki woda ciepła przegotowana"
+    ],
+    "steps": [
+      "Margarynę utrzeć do białości,",
+      "do roztartej margaryny dodawać po 1 całym jajku,",
+      "łyżeczkę cukru i mąki.",
+      "Cały czas miksując,",
+      "aż do momentu zużycia składników.",
+      "Dodać pod koniec kakao",
+      "i miksując do jednolitej masy.",
+      "Wylać na wysmarowaną tłuszczem blachę,",
+      "około 0,5 cm wysokości.",
+      "Piec ok. 20 min.",
+      "Na gorące ciasto wylać lukier.",
+      "Kroić szklanką półksiężyce jak ostygnie."
+    ],
+    "notes": "",
+    "tags": [],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [
+      "Zima"
+    ],
+    "createdAt": "2026-08-01T15:43:47.749Z"
   }
 ]
