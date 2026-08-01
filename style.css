@@ -2294,3 +2294,130 @@ button {
     padding: 1rem;
   }
 }
+
+/* Custom multiselect styles for recipe form */
+.custom-multiselect {
+  position: relative;
+}
+.multiselect-box {
+  background-color: var(--color-bg);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  user-select: none;
+}
+.multiselect-box:hover {
+  border-color: var(--color-primary);
+}
+.multiselect-value {
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 0.5rem;
+}
+.multiselect-arrow {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-smooth);
+}
+.multiselect-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  margin-top: 0.35rem;
+  max-height: 180px;
+  overflow-y: auto;
+  z-index: 200;
+  box-shadow: var(--shadow-lg);
+  padding: 0.5rem;
+}
+.multiselect-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  transition: background-color 0.2s;
+}
+.multiselect-item:hover {
+  background-color: var(--color-bg-alt);
+}
+.multiselect-item input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* Cooking modal filter badges */
+.cooking-recipe-filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.cooking-filter-badge {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid transparent;
+  transition: transform 0.2s;
+}
+.cooking-filter-badge:hover {
+  transform: translateY(-1px);
+}
+.cooking-filter-badge.dieta {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border-color: rgba(76, 175, 80, 0.2);
+}
+.cooking-filter-badge.szybkosc {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #e65100;
+  border-color: rgba(255, 152, 0, 0.2);
+}
+.cooking-filter-badge.pora_roku {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #0d47a1;
+  border-color: rgba(33, 150, 243, 0.2);
+}
+
+/* Ingredients section headers */
+.cooking-list-ingredients li.ingredient-section-header {
+  background-color: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: default;
+  padding: 0.6rem 0;
+  margin-top: 1.25rem;
+  display: block;
+}
+.cooking-list-ingredients li.ingredient-section-header:first-child {
+  margin-top: 0;
+}
+.cooking-list-ingredients li.ingredient-section-header::before {
+  content: none !important;
+  display: none !important;
+}

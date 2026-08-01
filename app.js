@@ -807,12 +807,12 @@ const DEFAULT_RECIPES = [
     "id": "nalesniki",
     "title": "Naleśniki",
     "ingredients": [
-      "1 szklanka mąki pszennej",
-      "1 szklanka mleka",
-      "3/4 szklanki wody (np. gazowanej) lub mleka",
-      "2 duże jajka",
+      "1 jajko",
+      "szklanka mąki",
+      "szklanka mleka",
+      "1 łyżka oleju",
       "szczypta soli",
-      "3 łyżki oleju roślinnego lub roztopionego masła"
+      "0,5 szklanki wody gazowanej"
     ],
     "steps": [
       "Mąkę wsypać do miski, dodać mleko oraz wodę (gazowaną lub zwykłą) i wymieszać rózgą lub krótko zmiksować mikserem na jednolite ciasto bez grudek.",
@@ -828,6 +828,32 @@ const DEFAULT_RECIPES = [
     "createdAt": "2026-07-26T20:04:00.000Z",
     "tags": [],
     "image": "https://files.catbox.moe/dwdy8r.jpg"
+  },
+  {
+    "id": "1785598373964",
+    "title": "Ciasteczka Rumowe",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "0,25 margaryna roślina",
+      "150g  cukier puder",
+      "150g mąka pszenna",
+      "4 jajka",
+      "kakao",
+      "1 płaska łyżka proszku do pieczeni",
+      "Lukier na 3 blachy",
+      "0,25 kg więcej – cukier puder",
+      "1 zapach cytrynowy",
+      "4 łyżki woda ciepła przegotowana"
+    ],
+    "steps": [],
+    "notes": "Margarynę utrzeć do białości, do roztartej margaryny dodawać po 1 całym jajku, łyżeczkę cukru i mąki. \nCały czas miksując, aż do momentu zużycia składników. \nDodać pod koniec kakao i miksując do jednolitej masy. \nWylać na wysmarowaną tłuszczem blachę, około 0,5 cm wysokości. \nPiec ok. 20 min. \nNa gorące ciasto wylać lukier. \nKroić szklanką półksiężyce jak ostygnie.",
+    "tags": [
+      "mamy"
+    ],
+    "isTested": false,
+    "createdAt": "2026-08-01T15:32:53.964Z"
   }
 ];
 
@@ -1575,6 +1601,7 @@ function openAddModal() {
   formImageDataUrl = "";
   updateImageFormPreview("");
   elements.formImageInput.value = "";
+  populateFormMultiselects(null);
   openModal(elements.recipeModal);
 }
 
@@ -1598,6 +1625,7 @@ function openEditModal(recipe) {
   updateImageFormPreview(formImageDataUrl);
   elements.formImageInput.value = "";
   
+  populateFormMultiselects(recipe);
   openModal(elements.recipeModal);
 }
 
@@ -1612,6 +1640,92 @@ function updateImageFormPreview(src) {
     elements.btnRemoveImage.style.display = 'none';
   }
 }
+
+// Populate the custom multiselect dropdowns dynamically
+function populateFormMultiselects(recipe = null) {
+  const categories = ['dieta', 'szybkosc', 'pora_roku'];
+  
+  categories.forEach(key => {
+    const dropdown = document.getElementById(`dropdown-${key}`);
+    const valueSpan = document.getElementById(`multiselect-${key}-value`);
+    if (!dropdown) return;
+    
+    dropdown.innerHTML = '';
+    const options = filterOptions[key] || [];
+    
+    // Get currently selected values for this recipe
+    const selectedValues = recipe && recipe[key] ? recipe[key] : [];
+    
+    if (options.length === 0) {
+      dropdown.innerHTML = '<div style="padding: 0.5rem; color: var(--color-text-muted); font-size: 0.85rem;">Brak skonfigurowanych filtrów w tej kategorii. Dodaj je w panelu bocznym.</div>';
+      valueSpan.textContent = 'Brak opcji do wyboru';
+      return;
+    }
+    
+    options.forEach(opt => {
+      const isChecked = selectedValues.includes(opt);
+      const item = document.createElement('label');
+      item.className = 'multiselect-item';
+      
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.name = `form-multiselect-${key}`;
+      cb.value = opt;
+      cb.checked = isChecked;
+      
+      cb.addEventListener('change', () => {
+        updateMultiselectValueText(key);
+      });
+      
+      const span = document.createElement('span');
+      span.textContent = opt;
+      
+      item.appendChild(cb);
+      item.appendChild(span);
+      dropdown.appendChild(item);
+    });
+    
+    updateMultiselectValueText(key);
+  });
+}
+
+function updateMultiselectValueText(key) {
+  const checkboxes = document.querySelectorAll(`input[name="form-multiselect-${key}"]:checked`);
+  const valueSpan = document.getElementById(`multiselect-${key}-value`);
+  if (!valueSpan) return;
+  
+  if (checkboxes.length === 0) {
+    let placeholder = 'Wybierz typ diety...';
+    if (key === 'szybkosc') placeholder = 'Wybierz szybkość...';
+    if (key === 'pora_roku') placeholder = 'Wybierz porę roku...';
+    valueSpan.textContent = placeholder;
+  } else {
+    const vals = Array.from(checkboxes).map(cb => cb.value);
+    valueSpan.textContent = vals.join(', ');
+  }
+}
+
+// Global function to toggle multiselect dropdown visibility
+window.toggleMultiselect = function(type) {
+  const dropdown = document.getElementById(`dropdown-${type}`);
+  if (dropdown) {
+    const isHidden = dropdown.style.display === 'none';
+    
+    // Close other dropdowns first
+    document.querySelectorAll('.multiselect-dropdown').forEach(el => el.style.display = 'none');
+    
+    if (isHidden) {
+      dropdown.style.display = 'block';
+    }
+  }
+};
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.custom-multiselect')) {
+    document.querySelectorAll('.multiselect-dropdown').forEach(el => el.style.display = 'none');
+  }
+});
 
 function handleFormSubmit(e) {
   e.preventDefault();
@@ -1642,6 +1756,10 @@ function handleFormSubmit(e) {
   
   const isTested = elements.formTested.checked;
 
+  const selectedDieta = Array.from(document.querySelectorAll('input[name="form-multiselect-dieta"]:checked')).map(cb => cb.value);
+  const selectedSzybkosc = Array.from(document.querySelectorAll('input[name="form-multiselect-szybkosc"]:checked')).map(cb => cb.value);
+  const selectedPoraRoku = Array.from(document.querySelectorAll('input[name="form-multiselect-pora_roku"]:checked')).map(cb => cb.value);
+
   if (!title) return;
 
   if (id) {
@@ -1658,7 +1776,10 @@ function handleFormSubmit(e) {
           steps,
           notes,
           tags: Array.from(new Set(tags)),
-          isTested
+          isTested,
+          dieta: selectedDieta,
+          szybkosc: selectedSzybkosc,
+          pora_roku: selectedPoraRoku
         };
       }
       return r;
@@ -1677,6 +1798,9 @@ function handleFormSubmit(e) {
       notes,
       tags: Array.from(new Set(tags)),
       isTested,
+      dieta: selectedDieta,
+      szybkosc: selectedSzybkosc,
+      pora_roku: selectedPoraRoku,
       createdAt: new Date().toISOString()
     };
     recipes.push(newRecipe);
@@ -1715,15 +1839,64 @@ function openCookingMode(id) {
     elements.cookingBadgeTested.style.display = 'none';
   }
 
-  // Ingredients layout
+  // Render cooking modal filter badges above ingredients
+  const filtersContainer = document.getElementById('cooking-recipe-filters');
+  if (filtersContainer) {
+    filtersContainer.innerHTML = '';
+    
+    // Diet tags
+    if (recipe.dieta && recipe.dieta.length > 0) {
+      recipe.dieta.forEach(val => {
+        const badge = document.createElement('span');
+        badge.className = 'cooking-filter-badge dieta';
+        badge.innerHTML = `🌱 ${val}`;
+        filtersContainer.appendChild(badge);
+      });
+    }
+    
+    // Speed tags
+    if (recipe.szybkosc && recipe.szybkosc.length > 0) {
+      recipe.szybkosc.forEach(val => {
+        const badge = document.createElement('span');
+        badge.className = 'cooking-filter-badge szybkosc';
+        badge.innerHTML = `⏱️ ${val}`;
+        filtersContainer.appendChild(badge);
+      });
+    }
+    
+    // Season tags
+    if (recipe.pora_roku && recipe.pora_roku.length > 0) {
+      recipe.pora_roku.forEach(val => {
+        const badge = document.createElement('span');
+        badge.className = 'cooking-filter-badge pora_roku';
+        
+        let emoji = '🍁';
+        const lowerVal = val.toLowerCase();
+        if (lowerVal.includes('wios')) emoji = '🌸';
+        else if (lowerVal.includes('lat') || lowerVal.includes('let')) emoji = '☀️';
+        else if (lowerVal.includes('jes')) emoji = '🍁';
+        else if (lowerVal.includes('zim')) emoji = '❄️';
+        
+        badge.innerHTML = `${emoji} ${val}`;
+        filtersContainer.appendChild(badge);
+      });
+    }
+  }
+
+  // Ingredients layout (support asterisk (*) section headers)
   elements.cookingIngredientsList.innerHTML = '';
   if (recipe.ingredients && recipe.ingredients.length > 0) {
     recipe.ingredients.forEach(ing => {
       const li = document.createElement('li');
-      li.textContent = ing;
-      li.addEventListener('click', () => {
-        li.classList.toggle('checked');
-      });
+      if (ing.trim().startsWith('*')) {
+        li.className = 'ingredient-section-header';
+        li.textContent = ing.replace(/^\*\s*/, '').trim();
+      } else {
+        li.textContent = ing;
+        li.addEventListener('click', () => {
+          li.classList.toggle('checked');
+        });
+      }
       elements.cookingIngredientsList.appendChild(li);
     });
   } else {

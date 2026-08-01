@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=5.5">
+  <link rel="stylesheet" href="style.css?v=5.6">
 
 </head>
 <body>
@@ -279,6 +279,42 @@
           </div>
         </div>
 
+        <!-- Diet Type (Typ diety) Multiselect -->
+        <div class="form-group custom-multiselect" id="multiselect-dieta-group">
+          <label>Typ diety</label>
+          <div class="multiselect-box" onclick="toggleMultiselect('dieta')">
+            <span class="multiselect-value" id="multiselect-dieta-value">Wybierz typ diety...</span>
+            <span class="multiselect-arrow">▼</span>
+          </div>
+          <div class="multiselect-dropdown" id="dropdown-dieta" style="display: none;">
+            <!-- Dynamic checkboxes -->
+          </div>
+        </div>
+
+        <!-- Speed (Szybkość) Multiselect -->
+        <div class="form-group custom-multiselect" id="multiselect-szybkosc-group">
+          <label>Szybkość przygotowania</label>
+          <div class="multiselect-box" onclick="toggleMultiselect('szybkosc')">
+            <span class="multiselect-value" id="multiselect-szybkosc-value">Wybierz szybkość...</span>
+            <span class="multiselect-arrow">▼</span>
+          </div>
+          <div class="multiselect-dropdown" id="dropdown-szybkosc" style="display: none;">
+            <!-- Dynamic checkboxes -->
+          </div>
+        </div>
+
+        <!-- Season (Pora roku) Multiselect -->
+        <div class="form-group custom-multiselect" id="multiselect-pora_roku-group">
+          <label>Pora roku</label>
+          <div class="multiselect-box" onclick="toggleMultiselect('pora_roku')">
+            <span class="multiselect-value" id="multiselect-pora_roku-value">Wybierz porę roku...</span>
+            <span class="multiselect-arrow">▼</span>
+          </div>
+          <div class="multiselect-dropdown" id="dropdown-pora_roku" style="display: none;">
+            <!-- Dynamic checkboxes -->
+          </div>
+        </div>
+
         <!-- Tested Switch (Heart toggle) -->
         <div class="form-group form-group-checkbox">
           <label for="form-tested" class="checkbox-container">
@@ -329,6 +365,7 @@
         
         <!-- Left Column: Ingredients -->
         <section class="cooking-ingredients-panel">
+          <div id="cooking-recipe-filters" class="cooking-recipe-filters-container"></div>
           <h3>Składniki</h3>
           <p class="section-help-text">Tapnij składnik, aby odznaczyć, że go masz:</p>
           <ul id="cooking-ingredients-list" class="cooking-list-ingredients">
@@ -367,6 +404,6 @@
   </div>
 
   <!-- App Logic script -->
-  <script src="app.js?v=5.5"></script>
+  <script src="app.js?v=5.6"></script>
 </body>
 </html>
