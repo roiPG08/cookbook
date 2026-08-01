@@ -709,5 +709,75 @@
       "Zima"
     ],
     "createdAt": "2026-08-01T15:43:47.749Z"
+  },
+  {
+    "id": "1785600515174",
+    "title": "Ciasteczka maślane (kruche)",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "120 g miękkiego masła",
+      "3 łyżki cukru pudru",
+      "150 g mąki pszennej",
+      "Kilka kropel aromatu śmietankowego"
+    ],
+    "steps": [
+      "Wszystkie składniki zgnieść lub utrzeć mikserem.",
+      "Z ciasta robić kuleczki mniejsze od orzecha włoskiego.",
+      "Kłaść na blachę wyłożoną papierem do pieczenia.",
+      "Spłaszczyć widelcem, nadając jednocześnie wzorek.",
+      "Piec 180 stopni 15-20 min"
+    ],
+    "notes": "",
+    "tags": [],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [
+      "Zima"
+    ],
+    "createdAt": "2026-08-01T16:08:35.174Z"
+  },
+  {
+    "id": "1785600589186",
+    "title": "Ciasto z truskawkami",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "4 żółtka + 1 całe jajko",
+      "10 łyżek cukru",
+      "1 opakowanie cukru waniliowego",
+      "1,5 łyżki mąki pszennej",
+      "1,5 łyżki mąki ziemniaczanej",
+      "0,5 l mleka",
+      "1,5 kostki masła",
+      "1 łyżka cukru pudru",
+      "Biszkopty (na spód)",
+      "Truskawki",
+      "2 galaretki truskawkowe"
+    ],
+    "steps": [
+      "4 Żółtka, całe jajko oraz 10 łyżek cukru utrzeć razem.",
+      "Dodać cukier waniliowy, 1 łīżkę mąki pszennej oraz 1 i 1/2 mąkę ziemniaczaną i wymieszać.",
+      "Zagotować 0,5 l mleka i wlać do przygotowanej masy.",
+      "Całość ponownie zagotować, ciągle mieszając, aż powstanie budyń, po czym wystudzić.",
+      "Zmiksować 1,5 kostki masła z  łyżką cukru pudru i stopniowo dodawać do tego wystudzoną masę budyniową.",
+      "Na dnie formy ułożyć biszkopty, a na nie wyłożyć połowę budyniu.",
+      "Wyłożyć drugą warstwę (budyń, truskawki) i ułożyć gęsto truskawki.",
+      "Całość zalać 2 tężejącymi galaretkami truskawkowymi i wstawić do lodówki."
+    ],
+    "notes": "",
+    "tags": [
+      "mamy"
+    ],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [
+      "Zima"
+    ],
+    "createdAt": "2026-08-01T16:09:49.186Z"
   }
 ]
