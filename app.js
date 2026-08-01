@@ -1908,6 +1908,10 @@ function openAddModal() {
   elements.formImageInput.value = "";
   populateFormMultiselects(null);
 
+  // Set default status to Untested for a new recipe
+  const statusUntested = document.getElementById('form-status-untested');
+  if (statusUntested) statusUntested.checked = true;
+
   // Show import tab switcher for new recipe
   const switcher = document.getElementById('recipe-add-method-tabs');
   if (switcher) switcher.style.display = 'flex';
@@ -1941,7 +1945,13 @@ function openEditModal(recipe) {
   
   elements.formNotes.value = recipe.notes || '';
   elements.formTags.value = recipe.tags ? recipe.tags.join(', ') : '';
-  elements.formTested.checked = recipe.isTested || false;
+  const statusTested = document.getElementById('form-status-tested');
+  const statusUntested = document.getElementById('form-status-untested');
+  if (recipe.isTested) {
+    if (statusTested) statusTested.checked = true;
+  } else {
+    if (statusUntested) statusUntested.checked = true;
+  }
   elements.btnFormDelete.style.display = 'inline-flex'; // show delete for existing recipe
   
   formImageDataUrl = recipe.image || "";
@@ -2077,7 +2087,7 @@ function handleFormSubmit(e) {
     .map(tag => tag.trim().toLowerCase().replace(/#/g, ''))
     .filter(tag => tag.length > 0);
   
-  const isTested = elements.formTested.checked;
+  const isTested = document.getElementById('form-status-tested') ? document.getElementById('form-status-tested').checked : false;
 
   const selectedDieta = Array.from(document.querySelectorAll('input[name="form-multiselect-dieta"]:checked')).map(cb => cb.value);
   const selectedSzybkosc = Array.from(document.querySelectorAll('input[name="form-multiselect-szybkosc"]:checked')).map(cb => cb.value);
