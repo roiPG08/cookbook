@@ -678,7 +678,7 @@
     "image": "images/custom_6edc37817f.jpg",
     "ingredients": [
       "* Ciasto",
-      "0,25 margaryna roślinna",
+      "250g margaryna roślinna",
       "150g cukier puder",
       "150g mąka pszenna",
       "4 jajka",
@@ -872,5 +872,94 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-01T16:41:49.435Z"
+  },
+  {
+    "id": "1785612878991",
+    "title": "Faworki",
+    "category": "lunch",
+    "link": "",
+    "image": "",
+    "ingredients": [],
+    "steps": [],
+    "notes": "",
+    "tags": [],
+    "isTested": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T19:34:38.991Z"
+  },
+  {
+    "id": "1785613955829",
+    "title": "Pleśniak",
+    "category": "dessert",
+    "link": "",
+    "image": "images/custom_d5ee004b13.jpg",
+    "ingredients": [
+      "3 szklanki mąki",
+      "1 szklanka cukru",
+      "4 jajka",
+      "1 kostka margaryny",
+      "1 1/2 łyżeczki proszku do pieczenia",
+      "1 mały zapach rumowy",
+      "1 łyżka kakao",
+      "Szczypta soli",
+      "Dżem"
+    ],
+    "steps": [
+      "Oddzielić białka i ubić je z cukrem na krem.",
+      "Z pozostałych składników zagnieść ciasto i podzielić je na 3 części.",
+      "Posmarować tortownicę tłuszczem i układać ciasto warstwami:",
+      "I warstwa: Rozłożyć równo pierwszą część ciasta, cieniutko posmarować dżemem (\"tylko liznąć\").",
+      "II warstwa: Zagnieść drugą część ciasta z kakao, zetrzeć na grubej tarce na dżem, a następnie wylać ubitą pianę/krem z białek.",
+      "III warstwa: Zetrzeć trzecią część ciasta na tarce wprost na białka, starając się, aby wiórki pokrywały białka równomiernie.",
+      "Piec w bardzo gorącym piekarniku (ok. 180°C).",
+      "Po upieczeniu ciasto powinno mieć złoty kolor i wyrośniętą pianę."
+    ],
+    "notes": "",
+    "tags": [
+      "mamy"
+    ],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T19:52:35.829Z"
+  },
+  {
+    "id": "1785614051960",
+    "title": "Faworki",
+    "category": "dessert",
+    "link": "",
+    "image": "images/custom_f317a5e483.jpg",
+    "ingredients": [
+      "250g mąki",
+      "2 żółtka",
+      "Sól",
+      "2 łyżki spirytusu",
+      "3 łyżki gęstej śmietany",
+      "Smalec do smażenia (3 kostki)"
+    ],
+    "steps": [
+      "Na stolnicę przesiej mąkę, dodaj szczyptę soli, żółtka, gęstą śmietanę oraz spirytus.",
+      "Zagnieść jednolite, gładkie ciasto.",
+      "Wybijanie ciasta (kluczowy krok): Ciasto mocno wybijaj wałkiem przez około 10–15 minut (rozwałkowuj i składaj powtórnie), aby wtłoczyć do niego jak najwięcej powietrza — dzięki temu faworki będą kruche i pełne pęcherzyków.",
+      "Ciasto rozwałkuj najcieniej jak to możliwe na podsypanej odrobiną mąki stolnicy.",
+      "Kółkiem radełkowym lub nożem krój ciasto na paski o szerokości ok. 2–3 cm i długości ok. 10–12 cm.",
+      "W środku każdego paska zrób podłużne nacięcie i przeciągnij przez nie jeden koniec paska, tworząc charakterystyczną kokardkę.",
+      "W szerokim garnku lub głębokiej patelni rozpuść i mocno rozgrzej 3 kostki smalcu (do temperatury ok. 175–180°C).",
+      "Smaż faworki partiami z obu stron na złoty kolor (po kilkadziesiąt sekund z każdej strony).",
+      "Wyjmij łyżką cedzakową na talerz wyłożony ręcznikiem papierowym, aby odsączyć nadmiar tłuszczu.",
+      "Po ostygnięciu obficie posyp cukrem pudrem."
+    ],
+    "notes": "",
+    "tags": [
+      "mamy"
+    ],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T19:54:11.960Z"
   }
 ]
