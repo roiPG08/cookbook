@@ -854,6 +854,49 @@ const DEFAULT_RECIPES = [
     ],
     "isTested": false,
     "createdAt": "2026-08-01T15:32:53.964Z"
+  },
+  {
+    "id": "1785599027749",
+    "title": "Ciasteczka Rumowe",
+    "category": "dessert",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "* Ciasto",
+      "0,25 margaryna roślinna",
+      "150g cukier puder",
+      "150g mąka pszenna",
+      "4 jajka",
+      "kakao",
+      "1 płaska łyżka proszku do pieczenia",
+      "* Lukier na 3 blachy",
+      "0,25 kg więcej – cukier puder",
+      "1 zapach cytrynowy",
+      "4 łyżki woda ciepła przegotowana"
+    ],
+    "steps": [
+      "Margarynę utrzeć do białości,",
+      "do roztartej margaryny dodawać po 1 całym jajku,",
+      "łyżeczkę cukru i mąki.",
+      "Cały czas miksując,",
+      "aż do momentu zużycia składników.",
+      "Dodać pod koniec kakao",
+      "i miksując do jednolitej masy.",
+      "Wylać na wysmarowaną tłuszczem blachę,",
+      "około 0,5 cm wysokości.",
+      "Piec ok. 20 min.",
+      "Na gorące ciasto wylać lukier.",
+      "Kroić szklanką półksiężyce jak ostygnie."
+    ],
+    "notes": "",
+    "tags": [],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [
+      "Zima"
+    ],
+    "createdAt": "2026-08-01T15:43:47.749Z"
   }
 ];
 
@@ -1821,14 +1864,8 @@ function openCookingMode(id) {
 
   currentCookingRecipeId = id; // Store ID for cooking mode deletion
 
-  // Hero Image Banner
-  if (recipe.image) {
-    elements.cookingHeroImage.style.backgroundImage = `url(${recipe.image})`;
-    elements.cookingHeroImage.style.display = 'block';
-  } else {
-    elements.cookingHeroImage.style.backgroundImage = 'none';
-    elements.cookingHeroImage.style.display = 'none';
-  }
+  // Hero Image Banner (disabled in cooking modal per user request)
+  elements.cookingHeroImage.style.display = 'none';
 
   elements.cookingTitle.textContent = recipe.title;
   

@@ -407,9 +407,9 @@ h1, h2, h3, h4, h5, h6, button, input, select, textarea {
 }
 
 .btn-outline-cooking {
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-text-main);
   padding: 0.6rem 1.1rem;
   border-radius: var(--radius-md);
   font-size: 0.9rem;
@@ -420,8 +420,8 @@ h1, h2, h3, h4, h5, h6, button, input, select, textarea {
 }
 
 .btn-outline-cooking:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 /* Card Action Text Buttons styling (instead of icons) */
@@ -1779,7 +1779,7 @@ button {
    COOKING MODE (Full Screen View)
    ========================================================================== */
 .modal-backdrop.cooking-theme {
-  background-color: #171412;
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   padding: 0;
 }
@@ -1789,15 +1789,15 @@ button {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #1d1916;
-  color: #ebdcd0;
+  background-color: #ffffff;
+  color: var(--color-text-main);
   overflow: hidden;
 }
 
 .cooking-header {
   padding: 1.25rem 2rem;
-  background-color: #151210;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1812,7 +1812,7 @@ button {
 
 .cooking-header-left h2 {
   font-size: 1.8rem;
-  color: white;
+  color: var(--color-text-main);
 }
 
 .badge-tested {
@@ -1835,9 +1835,9 @@ button {
 }
 
 .btn-wake {
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #c9cecb;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-text-muted);
   padding: 0.6rem 1.1rem;
   border-radius: var(--radius-md);
   font-size: 0.9rem;
@@ -1846,29 +1846,29 @@ button {
 .btn-wake.active {
   background-color: #f59e0b; /* Amber alert colors */
   border-color: #f59e0b;
-  color: #1a1c1a;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
 }
 
 .btn-danger-cooking {
-  background-color: rgba(207, 98, 76, 0.15);
-  border: 1px solid rgba(207, 98, 76, 0.3);
-  color: #ff8c75;
+  background-color: rgba(255, 59, 48, 0.08);
+  border: 1px solid rgba(255, 59, 48, 0.15);
+  color: #ff3b30;
   padding: 0.6rem 1.1rem;
   border-radius: var(--radius-md);
   font-size: 0.9rem;
 }
 
 .btn-danger-cooking:hover {
-  background-color: var(--color-accent);
+  background-color: #ff3b30;
   color: white;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 15px rgba(207, 98, 76, 0.3);
+  border-color: #ff3b30;
+  box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
 }
 
 .btn-close-cooking {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-text-main);
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -1876,7 +1876,7 @@ button {
 }
 
 .btn-close-cooking:hover {
-  background-color: var(--color-accent);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Grid layout in cooking mode */
@@ -1889,8 +1889,8 @@ button {
 
 /* Left panel: ingredients */
 .cooking-ingredients-panel {
-  background-color: #171917;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #fbfaf7;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
   padding: 2rem;
   overflow-y: auto;
   display: flex;
@@ -1900,14 +1900,14 @@ button {
 
 .cooking-ingredients-panel h3,
 .cooking-steps-panel h3 {
-  color: white;
+  color: var(--color-text-main);
   font-size: 1.6rem;
   margin-bottom: 0.25rem;
 }
 
 .section-help-text {
   font-size: 0.85rem;
-  color: #8c928e;
+  color: var(--color-text-muted);
 }
 
 .cooking-list-ingredients {
@@ -1919,8 +1919,8 @@ button {
 
 .cooking-list-ingredients li {
   padding: 0.75rem 1rem;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-sm);
   font-size: 1.05rem;
   cursor: pointer;
@@ -1936,21 +1936,21 @@ button {
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   flex-shrink: 0;
 }
 
 .cooking-list-ingredients li.checked {
-  color: #727974;
+  color: var(--color-text-muted);
   text-decoration: line-through;
-  background-color: rgba(255, 255, 255, 0.01);
-  border-color: rgba(255, 255, 255, 0.02);
+  background-color: #f7f7f7;
+  border-color: rgba(0, 0, 0, 0.03);
 }
 
 .cooking-list-ingredients li.checked::before {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #ff3b30;
+  border-color: #ff3b30;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: 12px;
   background-position: center;
@@ -1958,8 +1958,8 @@ button {
 }
 
 .cooking-notes-box {
-  background-color: rgba(82, 111, 96, 0.1);
-  border-left: 4px solid var(--color-primary);
+  background-color: rgba(255, 59, 48, 0.04);
+  border-left: 4px solid #ff3b30;
   padding: 1.25rem;
   border-radius: var(--radius-sm);
 }
@@ -1970,33 +1970,34 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: white;
+  color: var(--color-text-main);
   margin-bottom: 0.5rem;
 }
 
 .cooking-notes-content {
   font-size: 0.95rem;
   line-height: 1.45;
-  color: #c9cecb;
+  color: var(--color-text-muted);
 }
 
 .cooking-source-box a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-accent);
+  color: #ff3b30;
   font-weight: 500;
   font-size: 0.95rem;
 }
 
 .cooking-source-box a:hover {
-  color: white;
+  color: #d32f2f;
   text-decoration: underline;
 }
 
 /* Right panel: steps list */
 .cooking-steps-panel {
   padding: 2.5rem;
+  background-color: #ffffff;
   overflow-y: auto;
 }
 
@@ -2011,8 +2012,8 @@ button {
 
 .cooking-list-steps li {
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: var(--radius-md);
   font-size: 1.3rem;
   line-height: 1.5;
@@ -2029,8 +2030,8 @@ button {
   position: absolute;
   left: 1.25rem;
   top: 1.25rem;
-  background-color: rgba(255,255,255,0.08);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-text-main);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -2044,28 +2045,29 @@ button {
 }
 
 .cooking-list-steps li.active-step {
-  background-color: rgba(82, 111, 96, 0.12);
-  border-color: rgba(82, 111, 96, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  color: white;
+  background-color: rgba(255, 59, 48, 0.08);
+  border-color: rgba(255, 59, 48, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  color: var(--color-text-main);
   transform: scale(1.01);
 }
 
 .cooking-list-steps li.active-step::before {
-  background-color: var(--color-primary);
-  box-shadow: 0 0 10px rgba(82, 111, 96, 0.4);
+  background-color: #ff3b30;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
 }
 
 .cooking-list-steps li.completed-step {
-  opacity: 0.35;
+  opacity: 0.4;
   text-decoration: line-through;
   background-color: transparent;
   border-color: transparent;
 }
 
 .cooking-list-steps li.completed-step::before {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #727974;
+  background-color: rgba(0, 0, 0, 0.03);
+  color: var(--color-text-muted);
 }
 
 /* ==========================================================================
