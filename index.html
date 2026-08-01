@@ -210,6 +210,22 @@
       <form id="recipe-form" class="modal-body">
         <input type="hidden" id="form-recipe-id">
         
+        <!-- Add Method switcher tab row -->
+        <div class="recipe-method-tabs" id="recipe-add-method-tabs">
+          <button type="button" class="recipe-method-tab active" id="btn-method-manual">Dodaj Ręcznie</button>
+          <button type="button" class="recipe-method-tab" id="btn-method-link">Pobierz z Linku ⚡</button>
+        </div>
+        
+        <!-- Import from Link panel -->
+        <div id="import-link-container" class="form-group" style="display: none; padding: 1.25rem; background-color: var(--color-bg-input); border-radius: var(--radius-md); border: 1px dashed var(--color-border); margin-bottom: 1.5rem;">
+          <label for="import-recipe-url" style="font-weight: 600; margin-bottom: 0.5rem; display: block; font-size: 0.9rem;">Wklej link do przepisu (np. Kwestia Smaku, blogi kulinarnie)</label>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="url" id="import-recipe-url" placeholder="https://www.kwestiasmaku.com/..." style="flex: 1; margin: 0; padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); background-color: var(--color-bg-card); font-family: var(--font-body); font-size: 0.9rem;">
+            <button type="button" id="btn-import-recipe-fetch" class="btn-primary" style="white-space: nowrap; padding: 0.6rem 1rem;">Pobierz ⚡</button>
+          </div>
+          <span id="import-recipe-status" style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 0.5rem;">Automatycznie uzupełni składniki, kroki przygotowania, tytuł oraz źródło.</span>
+        </div>
+        
         <!-- Recipe Title -->
         <div class="form-group">
           <label for="form-title" class="required">Nazwa przepisu</label>

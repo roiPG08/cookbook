@@ -70,6 +70,37 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     self.wfile.write(f.read().encode('utf-8'))
             else:
                 self.wfile.write(b'[]')
+        elif self.path.startswith('/api/scrape'):
+            from urllib.parse import urlparse, parse_qs
+            parsed_path = urlparse(self.path)
+            params = parse_qs(parsed_path.query)
+            url = params.get('url', [None])[0]
+            
+            if not url:
+                self.send_response(400)
+                self.end_headers()
+                self.wfile.write(b'Missing url parameter')
+                return
+                
+            try:
+                req = urllib.request.Request(
+                    url,
+                    headers={
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                        'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7'
+                    }
+                )
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    html = response.read().decode('utf-8', errors='ignore')
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/html; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(html.encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(str(e).encode('utf-8'))
         else:
             # Let SimpleHTTPRequestHandler serve files from the directory it was started in
             super().do_GET()
