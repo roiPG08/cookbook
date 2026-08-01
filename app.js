@@ -1874,7 +1874,7 @@ function handleFormSubmit(e) {
    COOKING MODE MODAL & SCREEN WAKE LOCK
    ========================================================================== */
 
-let currentPortions = 2;
+let currentPortions = 1;
 let currentMultiplier = 1.0;
 let activeCookingRecipe = null;
 
@@ -1907,7 +1907,7 @@ function openCookingMode(id) {
 
   currentCookingRecipeId = id; // Store ID for cooking mode deletion
   activeCookingRecipe = recipe;
-  currentPortions = 2;
+  currentPortions = 1;
   currentMultiplier = 1.0;
   
   const valDisplay = document.getElementById('cooking-portions-value');
@@ -2133,7 +2133,7 @@ function initPortionCalculator() {
     decBtn.addEventListener('click', () => {
       if (currentPortions > 1) {
         currentPortions--;
-        currentMultiplier = currentPortions / 2;
+        currentMultiplier = currentPortions;
         if (valDisplay) valDisplay.textContent = currentPortions;
         renderCookingIngredients();
       }
@@ -2141,7 +2141,7 @@ function initPortionCalculator() {
     
     incBtn.addEventListener('click', () => {
       currentPortions++;
-      currentMultiplier = currentPortions / 2;
+      currentMultiplier = currentPortions;
       if (valDisplay) valDisplay.textContent = currentPortions;
       renderCookingIngredients();
     });
