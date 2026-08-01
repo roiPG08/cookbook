@@ -780,24 +780,6 @@ h1, h2, h3, h4, h5, h6, button, input, select, textarea {
   --color-border-light: rgba(0, 0, 0, 0.05); /* Light line border */
   --color-border-focus: #000000;     /* Focus black */
   --color-shadow: rgba(43, 38, 33, 0.04);
-}
-
-body.dark-theme {
-  --color-bg-base: #121212;          /* Clean near-black base background */
-  --color-bg-card: #1c1c1e;          /* Card background in dark mode */
-  --color-bg-input: #2c2c2e;         /* Dark grey input background */
-  --color-primary: #ffffff;          /* White accent */
-  --color-primary-dark: #e5e5ea;     /* Light grey */
-  --color-primary-light: rgba(255, 255, 255, 0.08); /* Soft white tint */
-  --color-accent: #e5e5ea;           /* Light grey accent */
-  --color-accent-dark: #ffffff;      /* White */
-  --color-text-main: #f5f5f7;        /* Crisp off-white text */
-  --color-text-muted: #a1a1a6;       /* Soft grey text */
-  --color-border: #2c2c2e;           /* Dark grey border */
-  --color-border-light: rgba(255, 255, 255, 0.06); /* Light line border */
-  --color-border-focus: #ffffff;     /* Focus white */
-  --color-shadow: rgba(0, 0, 0, 0.2);
-}
   --color-shadow-hover: rgba(43, 38, 33, 0.08);
 
   /* Fonts */
@@ -2457,9 +2439,7 @@ button {
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border-light);
 }
-body.dark-theme .portions-calculator {
-  background-color: rgba(255, 255, 255, 0.04);
-}
+
 .portions-label {
   font-size: 0.9rem;
   font-weight: 600;

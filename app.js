@@ -999,7 +999,6 @@ document.addEventListener('DOMContentLoaded', () => {
   checkAdminAccess();
   
   // New features initialization
-  initDarkMode();
   initPortionCalculator();
   initTimers();
   initSearchOptionListeners();
@@ -2055,23 +2054,7 @@ function closeCookingMode() {
   stopTimerWidget(); // Clean up timers on close
 }
 
-// Dark Mode logic
-function initDarkMode() {
-  const toggleBtn = document.getElementById('btn-dark-mode-toggle');
-  if (!toggleBtn) return;
-  
-  const isDark = localStorage.getItem('dark_theme') === 'true';
-  if (isDark) {
-    document.body.classList.add('dark-theme');
-    toggleBtn.querySelector('.mode-icon').textContent = '☀️';
-  }
-  
-  toggleBtn.addEventListener('click', () => {
-    const wasDark = document.body.classList.toggle('dark-theme');
-    localStorage.setItem('dark_theme', wasDark ? 'true' : 'false');
-    toggleBtn.querySelector('.mode-icon').textContent = wasDark ? '☀️' : '🌙';
-  });
-}
+
 
 // Portion calculator ingredient line parser
 function scaleIngredient(ing, multiplier) {
