@@ -547,7 +547,7 @@
   },
   {
     "id": "pad_thai",
-    "title": "Pad Thai (Kwestia Smaku)",
+    "title": "Pad Thai",
     "ingredients": [
       "100 g makaronu ryżowego (wstążki 3-5 mm)",
       "2 łyżki oleju roślinnego",
@@ -577,8 +577,8 @@
     ],
     "notes": "Klasyczny przepis z Kwestii Smaku. Aby makaron nie był zbyt miękki, gotuj go krótko (ok. 4 minuty) i zahartuj zimną wodą.",
     "link": "https://www.kwestiasmaku.com/kuchnia_orientu/pad_thai/przepis.html",
-    "isTested": false,
-    "category": "dinner",
+    "isTested": true,
+    "category": "lunch",
     "createdAt": "2026-07-26T20:01:00.000Z",
     "tags": [],
     "image": "https://files.catbox.moe/o8begj.jpg"
