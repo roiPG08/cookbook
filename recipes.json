@@ -782,5 +782,90 @@
       "Zima"
     ],
     "createdAt": "2026-08-01T16:09:49.186Z"
+  },
+  {
+    "id": "1785601531107",
+    "title": "Sałatka Cezar",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_727aa64cb9.jpg",
+    "ingredients": [
+      "300 g filetu z kurczaka",
+      "1 łyżka oliwy + do skropienia",
+      "1/2 większej główki sałaty rzymskiej",
+      "6 łyżek tartego parmezanu lub grana padano",
+      "10 cm kawałek bagietki",
+      "* Sos Cezar",
+      "4 łyżki majonezu",
+      "1 mały ząbek czosnku",
+      "1 łyżeczka musztardy",
+      "1 i 1/2 łyżeczki soku z cytryny (lub 1 łyżeczka octu winnego)",
+      "1 łyżeczka sosu worcestershire"
+    ],
+    "steps": [
+      "Filet z kurczaka oczyścić z błonek i kostek, pokroić na 4 części, doprawić solą i pieprzem oraz wysmarować oliwą.",
+      "Rozgrzać patelnię (np. grillową lub zwykłą), położyć filety i smażyć przez ok. 4 minuty z każdej strony, w międzyczasie skrapiać mięso dodatkową oliwą.",
+      "Odłożyć na talerz.",
+      "Na tę samą patelnię włożyć pokrojoną w kosteczkę bagietkę, zmniejszyć ogień do minimum i smażyć przez ok. 5 minut co chwilę mieszając, aż grzanki będą chrupkie. Odłożyć na talerz.",
+      "Przygotować sos Cezar: czosnek przecisnąć przez praskę i wymieszać z majonezem, musztardą, sokiem z cytryny lub octem winnym oraz z sosem worcestershire.",
+      "Doprawić solą i świeżo zmielonym czarnym pieprzem, wymieszać.",
+      "Sałatę rzymską opłukać, osuszyć, posiekać, wymieszać z połową sosu, wyłożyć do salaterek lub talerzy.",
+      "Można doprawić solą w razie potrzeby.",
+      "Dodać pokrojonego kurczaka, skropić resztą sosu, posypać tartym parmezanem oraz grzankami."
+    ],
+    "notes": "",
+    "tags": [],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T16:25:31.107Z"
+  },
+  {
+    "id": "1785601975229",
+    "title": "Chinszczyzna z Pak Choi",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_8d0356d15a.jpg",
+    "ingredients": [],
+    "steps": [],
+    "notes": "",
+    "tags": [],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T16:32:55.229Z"
+  },
+  {
+    "id": "1785602509435",
+    "title": "Pączki Babci L.",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_c7e70ac6ad.jpg",
+    "ingredients": [
+      "1 kg mąki szymanowskiej",
+      "10 dkg drożdży",
+      "12 żółtek",
+      "1/2 szklanki cukru",
+      "1/2 kostki masła roślinnego (kostka)",
+      "1/2 litra mleka",
+      "2 kieliszki spirytusu",
+      "Szczypta soli",
+      "Zapach rumowy lub arakowy",
+      "Marmolada wieloowocowa",
+      "Smalec ok. 2 kg"
+    ],
+    "steps": [],
+    "notes": "Z drożdży, cukru i letniego mleka zrobić rozczyn i odstawić do wyrośnięcia.\nŻółtka utrzeć z ckrem, dodać mąkę, masło, alkohol, zapach, mleko, wyrośnięte drożdże i wyrobić.\nCiasto odstawić w ciepłe miejsce i zostawić do wyrośnięcia.\nPo wyrośnięciu ciasta uformować pączki, nałożyć marmoladę, pozostawić do wyrośnięcia. Wykładać na gorący tłuszcz i smażyć.",
+    "tags": [
+      "babci",
+      "lidii"
+    ],
+    "isTested": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-01T16:41:49.435Z"
   }
 ]
