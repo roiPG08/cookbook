@@ -29,6 +29,9 @@
           <button id="btn-cloud-sync" class="btn-outline" aria-label="Synchronizacja chmurowa" style="display: none;">
             <span>☁️</span> <span id="cloud-status-text">Chmura</span>
           </button>
+          <button id="btn-dark-mode-toggle" class="btn-outline btn-icon-only" aria-label="Przełącz tryb ciemny">
+            <span class="mode-icon">🌙</span>
+          </button>
           <button id="btn-add-recipe-open" class="btn-outline" aria-label="Dodaj nowy przepis">
             Dodaj Przepis
           </button>
@@ -65,6 +68,12 @@
           </svg>
         </div>
         <button id="btn-toggle-filters" class="btn-filters-toggle-black">Filtruj</button>
+      </div>
+      <div class="search-options-row">
+        <label class="search-option-label">
+          <input type="checkbox" id="search-by-ingredients">
+          <span class="search-option-switch-label">Szukaj tylko po składnikach</span>
+        </label>
       </div>
 
       <!-- Collapsible Filters Drawer -->
@@ -364,6 +373,14 @@
         <section class="cooking-ingredients-panel">
           <div id="cooking-recipe-filters" class="cooking-recipe-filters-container"></div>
           <h3>Składniki</h3>
+          <div class="portions-calculator" id="cooking-portions-control">
+            <span class="portions-label">Porcje:</span>
+            <div class="portions-buttons">
+              <button class="btn-portion-control" id="btn-portion-dec" aria-label="Zmniejsz porcje">−</button>
+              <span id="cooking-portions-value" class="portions-value">2</span>
+              <button class="btn-portion-control" id="btn-portion-inc" aria-label="Zwiększ porcje">+</button>
+            </div>
+          </div>
           <p class="section-help-text">Tapnij składnik, aby odznaczyć, że go masz:</p>
           <ul id="cooking-ingredients-list" class="cooking-list-ingredients">
             <!-- Dynamic ingredients -->
@@ -398,6 +415,19 @@
   <!-- Notification Toast -->
   <div id="toast-notification" class="toast" aria-live="polite">
     <span id="toast-message">Przepis zapisany pomyślnie!</span>
+  </div>
+
+  <!-- Floating active timer widget -->
+  <div id="cooking-active-timer-widget" class="cooking-timer-widget" style="display: none;">
+    <div class="timer-widget-header">
+      <span class="timer-widget-title">Minutnik</span>
+      <button id="btn-timer-widget-close" class="btn-timer-close">×</button>
+    </div>
+    <div class="timer-widget-time" id="timer-widget-display">00:00</div>
+    <div class="timer-widget-controls">
+      <button id="btn-timer-widget-toggle" class="btn-timer-btn">Pauza</button>
+      <button id="btn-timer-widget-reset" class="btn-timer-btn">Reset</button>
+    </div>
   </div>
 
   <!-- App Logic script -->

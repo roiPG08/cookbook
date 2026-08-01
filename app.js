@@ -997,7 +997,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   setupFiltersConfigListeners();
   checkAdminAccess();
-   // Initialize Lucide Icons
+  
+  // New features initialization
+  initDarkMode();
+  initPortionCalculator();
+  initTimers();
+  initSearchOptionListeners();
 });
 
 function checkAdminAccess() {
@@ -1341,6 +1346,17 @@ function toggleTagFilter(tag) {
 function matchesSearch(recipe, text) {
   if (!text) return true;
   const t = text.toLowerCase();
+  
+  const onlyIngredients = document.getElementById('search-by-ingredients') && document.getElementById('search-by-ingredients').checked;
+  if (onlyIngredients) {
+    // Search by ingredients only (allows comma separated list, e.g. "cukier, jajka")
+    const queryParts = t.split(',').map(s => s.trim()).filter(s => s.length > 0);
+    if (queryParts.length === 0) return true;
+    
+    return queryParts.every(part => 
+      recipe.ingredients && recipe.ingredients.some(ing => ing.toLowerCase().includes(part))
+    );
+  }
   
   const titleMatch = recipe.title.toLowerCase().includes(t);
   const notesMatch = recipe.notes && recipe.notes.toLowerCase().includes(t);
@@ -1858,11 +1874,46 @@ function handleFormSubmit(e) {
    COOKING MODE MODAL & SCREEN WAKE LOCK
    ========================================================================== */
 
+let currentPortions = 2;
+let currentMultiplier = 1.0;
+let activeCookingRecipe = null;
+
+function renderCookingIngredients() {
+  if (!activeCookingRecipe) return;
+  elements.cookingIngredientsList.innerHTML = '';
+  
+  if (activeCookingRecipe.ingredients && activeCookingRecipe.ingredients.length > 0) {
+    activeCookingRecipe.ingredients.forEach(ing => {
+      const li = document.createElement('li');
+      if (ing.trim().startsWith('*')) {
+        li.className = 'ingredient-section-header';
+        li.textContent = ing.replace(/^\*\s*/, '').trim();
+      } else {
+        li.textContent = scaleIngredient(ing, currentMultiplier);
+        li.addEventListener('click', () => {
+          li.classList.toggle('checked');
+        });
+      }
+      elements.cookingIngredientsList.appendChild(li);
+    });
+  } else {
+    elements.cookingIngredientsList.innerHTML = '<li class="checked">Brak rozpisanych składników</li>';
+  }
+}
+
 function openCookingMode(id) {
   const recipe = recipes.find(r => r.id === id);
   if (!recipe) return;
 
   currentCookingRecipeId = id; // Store ID for cooking mode deletion
+  activeCookingRecipe = recipe;
+  currentPortions = 2;
+  currentMultiplier = 1.0;
+  
+  const valDisplay = document.getElementById('cooking-portions-value');
+  if (valDisplay) {
+    valDisplay.textContent = currentPortions;
+  }
 
   // Hero Image Banner (disabled in cooking modal per user request)
   elements.cookingHeroImage.style.display = 'none';
@@ -1920,25 +1971,8 @@ function openCookingMode(id) {
     }
   }
 
-  // Ingredients layout (support asterisk (*) section headers)
-  elements.cookingIngredientsList.innerHTML = '';
-  if (recipe.ingredients && recipe.ingredients.length > 0) {
-    recipe.ingredients.forEach(ing => {
-      const li = document.createElement('li');
-      if (ing.trim().startsWith('*')) {
-        li.className = 'ingredient-section-header';
-        li.textContent = ing.replace(/^\*\s*/, '').trim();
-      } else {
-        li.textContent = ing;
-        li.addEventListener('click', () => {
-          li.classList.toggle('checked');
-        });
-      }
-      elements.cookingIngredientsList.appendChild(li);
-    });
-  } else {
-    elements.cookingIngredientsList.innerHTML = '<li class="checked">Brak rozpisanych składników</li>';
-  }
+  // Render ingredients using portions calculator
+  renderCookingIngredients();
 
   // Notes
   if (recipe.notes) {
@@ -1958,12 +1992,35 @@ function openCookingMode(id) {
     elements.cookingSourceBox.style.display = 'none';
   }
 
-  // Steps layout
+  // Steps layout with timer support
   elements.cookingStepsList.innerHTML = '';
   if (recipe.steps && recipe.steps.length > 0) {
     recipe.steps.forEach((step, index) => {
       const li = document.createElement('li');
-      li.textContent = step;
+      
+      const textSpan = document.createElement('span');
+      textSpan.textContent = step;
+      li.appendChild(textSpan);
+      
+      // Look for timers: e.g. "20 min", "20 minut", "1.5 h", "2 godziny"
+      const timeRegex = /\b(\d+(?:[.,]\d+)?)\s*(min|minut|h|godz|godzin|godziny)\b/i;
+      const match = step.match(timeRegex);
+      if (match) {
+        const timeVal = parseFloat(match[1].replace(',', '.'));
+        const timeUnit = match[2].toLowerCase();
+        const durationSeconds = timeUnit.startsWith('min') ? timeVal * 60 : timeVal * 3600;
+        
+        const timerBtn = document.createElement('button');
+        timerBtn.className = 'btn-timer-trigger';
+        timerBtn.innerHTML = `⏱️ Uruchom minutnik (${match[1]} ${match[2]})`;
+        timerBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent toggling step
+          startTimerWidget(durationSeconds, recipe.title);
+        });
+        
+        li.appendChild(document.createElement('br'));
+        li.appendChild(timerBtn);
+      }
       
       // Step-by-step interactivity
       li.addEventListener('click', () => {
@@ -1989,13 +2046,247 @@ function openCookingMode(id) {
 
   // Open Cooking screen
   openModal(elements.cookingModal);
-   // render source icon
 }
 
 function closeCookingMode() {
   closeModal(elements.cookingModal);
   // Release Wake Lock automatically when closing the screen
   releaseWakeLock();
+  stopTimerWidget(); // Clean up timers on close
+}
+
+// Dark Mode logic
+function initDarkMode() {
+  const toggleBtn = document.getElementById('btn-dark-mode-toggle');
+  if (!toggleBtn) return;
+  
+  const isDark = localStorage.getItem('dark_theme') === 'true';
+  if (isDark) {
+    document.body.classList.add('dark-theme');
+    toggleBtn.querySelector('.mode-icon').textContent = '☀️';
+  }
+  
+  toggleBtn.addEventListener('click', () => {
+    const wasDark = document.body.classList.toggle('dark-theme');
+    localStorage.setItem('dark_theme', wasDark ? 'true' : 'false');
+    toggleBtn.querySelector('.mode-icon').textContent = wasDark ? '☀️' : '🌙';
+  });
+}
+
+// Portion calculator ingredient line parser
+function scaleIngredient(ing, multiplier) {
+  if (ing.trim().startsWith('*')) {
+    return ing;
+  }
+  
+  let text = ing;
+  const numRegex = /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+([.,]\d+)?)/;
+  const match = text.match(numRegex);
+  
+  if (!match) {
+    return ing;
+  }
+  
+  const numStr = match[0];
+  const remainingText = text.substring(numStr.length);
+  
+  let value = 0;
+  if (numStr.includes('/')) {
+    const parts = numStr.trim().split(/\s+/);
+    if (parts.length === 2) {
+      const whole = parseFloat(parts[0]);
+      const fracParts = parts[1].split('/');
+      value = whole + (parseFloat(fracParts[0]) / parseFloat(fracParts[1]));
+    } else {
+      const fracParts = parts[0].split('/');
+      value = parseFloat(fracParts[0]) / parseFloat(fracParts[1]);
+    }
+  } else {
+    value = parseFloat(numStr.replace(',', '.'));
+  }
+  
+  if (isNaN(value)) {
+    return ing;
+  }
+  
+  const scaledValue = value * multiplier;
+  
+  let formattedValue = '';
+  if (scaledValue === 0.25) formattedValue = '1/4';
+  else if (scaledValue === 0.5) formattedValue = '1/2';
+  else if (scaledValue === 0.75) formattedValue = '3/4';
+  else if (scaledValue === 1.5) formattedValue = '1 1/2';
+  else if (scaledValue === 2.5) formattedValue = '2 1/2';
+  else {
+    formattedValue = parseFloat(scaledValue.toFixed(2)).toString().replace('.', ',');
+  }
+  
+  return formattedValue + remainingText;
+}
+
+function initPortionCalculator() {
+  const decBtn = document.getElementById('btn-portion-dec');
+  const incBtn = document.getElementById('btn-portion-inc');
+  const valDisplay = document.getElementById('cooking-portions-value');
+  
+  if (decBtn && incBtn) {
+    decBtn.addEventListener('click', () => {
+      if (currentPortions > 1) {
+        currentPortions--;
+        currentMultiplier = currentPortions / 2;
+        if (valDisplay) valDisplay.textContent = currentPortions;
+        renderCookingIngredients();
+      }
+    });
+    
+    incBtn.addEventListener('click', () => {
+      currentPortions++;
+      currentMultiplier = currentPortions / 2;
+      if (valDisplay) valDisplay.textContent = currentPortions;
+      renderCookingIngredients();
+    });
+  }
+}
+
+// Timer and stopwatch logic
+let timerInterval = null;
+let timerSecondsRemaining = 0;
+let timerIsPaused = false;
+let timerOriginalDuration = 0;
+
+function initTimers() {
+  const toggleBtn = document.getElementById('btn-timer-widget-toggle');
+  const resetBtn = document.getElementById('btn-timer-widget-reset');
+  const closeBtn = document.getElementById('btn-timer-widget-close');
+  
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      timerIsPaused = !timerIsPaused;
+      toggleBtn.textContent = timerIsPaused ? 'Wznów' : 'Pauza';
+    });
+  }
+  
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      timerSecondsRemaining = timerOriginalDuration;
+      updateTimerDisplay();
+    });
+  }
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      stopTimerWidget();
+    });
+  }
+}
+
+function startTimerWidget(durationSeconds, recipeTitle) {
+  stopTimerWidget();
+  
+  timerSecondsRemaining = durationSeconds;
+  timerOriginalDuration = durationSeconds;
+  timerIsPaused = false;
+  
+  const widget = document.getElementById('cooking-active-timer-widget');
+  const toggleBtn = document.getElementById('btn-timer-widget-toggle');
+  
+  if (widget) widget.style.display = 'block';
+  if (toggleBtn) toggleBtn.textContent = 'Pauza';
+  
+  updateTimerDisplay();
+  
+  timerInterval = setInterval(() => {
+    if (!timerIsPaused) {
+      timerSecondsRemaining--;
+      updateTimerDisplay();
+      if (timerSecondsRemaining <= 0) {
+        clearInterval(timerInterval);
+        playAlarm();
+      }
+    }
+  }, 1000);
+}
+
+// Stop and reset timer
+function stopTimerWidget() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  const widget = document.getElementById('cooking-active-timer-widget');
+  if (widget) widget.style.display = 'none';
+}
+
+function updateTimerDisplay() {
+  const display = document.getElementById('timer-widget-display');
+  if (!display) return;
+  
+  const h = Math.floor(timerSecondsRemaining / 3600);
+  const m = Math.floor((timerSecondsRemaining % 3600) / 60);
+  const s = timerSecondsRemaining % 60;
+  
+  let timeStr = '';
+  if (h > 0) {
+    timeStr = `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  } else {
+    timeStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  }
+  
+  display.textContent = timeStr;
+}
+
+function playAlarm() {
+  try {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let time = audioCtx.currentTime;
+    for (let i = 0; i < 4; i++) {
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, time); // A5 note
+      
+      gainNode.gain.setValueAtTime(0, time);
+      gainNode.gain.linearRampToValueAtTime(0.3, time + 0.05);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, time + 0.3);
+      
+      osc.start(time);
+      osc.stop(time + 0.3);
+      
+      time += 0.4;
+    }
+    
+    // Visual flash display
+    const timerDisplay = document.getElementById('timer-widget-display');
+    if (timerDisplay) {
+      timerDisplay.style.color = '#ff3b30';
+      let flash = true;
+      const flashInterval = setInterval(() => {
+        timerDisplay.style.visibility = flash ? 'hidden' : 'visible';
+        flash = !flash;
+      }, 300);
+      
+      setTimeout(() => {
+        clearInterval(flashInterval);
+        timerDisplay.style.visibility = 'visible';
+        timerDisplay.style.color = '';
+      }, 5000);
+    }
+  } catch (e) {
+    console.warn("AudioContext failed to play:", e);
+  }
+}
+
+function initSearchOptionListeners() {
+  const checkbox = document.getElementById('search-by-ingredients');
+  if (checkbox) {
+    checkbox.addEventListener('change', () => {
+      renderRecipes();
+    });
+  }
 }
 
 // Request / Toggle Wake Lock (keeps the display awake while cooking)
