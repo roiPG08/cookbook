@@ -1247,7 +1247,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // New features initialization
   initPortionCalculator();
   initTimers();
-  initSearchOptionListeners();
   initRecipeImporter();
 });
 
@@ -1592,17 +1591,6 @@ function toggleTagFilter(tag) {
 function matchesSearch(recipe, text) {
   if (!text) return true;
   const t = text.toLowerCase();
-  
-  const onlyIngredients = document.getElementById('search-by-ingredients') && document.getElementById('search-by-ingredients').checked;
-  if (onlyIngredients) {
-    // Search by ingredients only (allows comma separated list, e.g. "cukier, jajka")
-    const queryParts = t.split(',').map(s => s.trim()).filter(s => s.length > 0);
-    if (queryParts.length === 0) return true;
-    
-    return queryParts.every(part => 
-      recipe.ingredients && recipe.ingredients.some(ing => ing.toLowerCase().includes(part))
-    );
-  }
   
   const titleMatch = recipe.title.toLowerCase().includes(t);
   const notesMatch = recipe.notes && recipe.notes.toLowerCase().includes(t);
@@ -2538,14 +2526,7 @@ function playAlarm() {
   }
 }
 
-function initSearchOptionListeners() {
-  const checkbox = document.getElementById('search-by-ingredients');
-  if (checkbox) {
-    checkbox.addEventListener('change', () => {
-      renderRecipes();
-    });
-  }
-}
+
 
 // Request / Toggle Wake Lock (keeps the display awake while cooking)
 async function toggleWakeLock() {

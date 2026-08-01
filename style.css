@@ -2567,28 +2567,7 @@ button {
   color: white;
 }
 
-/* Search options row styling */
-.search-options-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.75rem;
-}
-.search-option-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-family: var(--font-body);
-  color: var(--color-text-muted);
-  user-select: none;
-}
-.search-option-label input[type="checkbox"] {
-  accent-color: #ff3b30;
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
+
 
 /* Tab switcher for recipe add method */
 .recipe-method-tabs {
