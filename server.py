@@ -122,7 +122,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     if file_item.file:
                         file_data = file_item.file.read()
                         
-                         # Generate unique filename and save locally as backup
+                        # Generate unique filename and save locally inside the project's images directory
                         filename = f"custom_{uuid.uuid4().hex[:10]}.jpg"
                         images_dir = os.path.join(DIRECTORY, 'images')
                         os.makedirs(images_dir, exist_ok=True)
@@ -131,13 +131,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                         with open(filepath, 'wb') as f:
                             f.write(file_data)
                         
-                        # Upload to Catbox for permanent global access
-                        cloud_url = upload_to_catbox(file_data, filename)
+                        # Return the local relative path. This path will be committed and served directly from Netlify.
+                        local_relative_path = f"images/{filename}"
                         
                         self.send_response(200)
                         self.send_header('Content-Type', 'application/json')
                         self.end_headers()
-                        self.wfile.write(json.dumps({"status": "success", "imagePath": cloud_url}).encode('utf-8'))
+                        self.wfile.write(json.dumps({"status": "success", "imagePath": local_relative_path}).encode('utf-8'))
                         return
                 
                 self.send_response(400)
@@ -150,13 +150,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/publish':
             try:
                 import subprocess
-                # Stage recipes.json
-                subprocess.run(['git', 'add', 'recipes.json'], check=True)
+                # Stage recipes.json and the images directory (to upload newly added images to GitHub)
+                subprocess.run(['git', 'add', 'recipes.json', 'images/'], check=True)
                 
-                # Check if there are changes to commit
-                status_res = subprocess.run(['git', 'status', '--porcelain', 'recipes.json'], capture_output=True, text=True)
+                # Check if there are changes to commit (either in recipes.json or images/)
+                status_res = subprocess.run(['git', 'status', '--porcelain', 'recipes.json', 'images/'], capture_output=True, text=True)
                 if status_res.stdout.strip():
-                    subprocess.run(['git', 'commit', '-m', 'Update recipes from web panel'], check=True)
+                    subprocess.run(['git', 'commit', '-m', 'Update recipes and images from web panel'], check=True)
                 
                 # Push to remote GitHub repo
                 subprocess.run(['git', 'push', 'origin', 'main'], check=True)
