@@ -1646,8 +1646,11 @@ function renderRecipes() {
     if (activeFilters.tab === 'tested' && !recipe.isTested) {
       return false;
     }
-    if (activeFilters.tab === 'untested' && recipe.isTested) {
-      return false;
+    if (activeFilters.tab === 'untested') {
+      const isRecipeUntested = (recipe.toTest === true) || (!recipe.isTested && recipe.toTest === undefined);
+      if (!isRecipeUntested) {
+        return false;
+      }
     }
 
     // 4. Status Pill Filter
@@ -1896,9 +1899,9 @@ function openAddModal() {
   elements.formImageInput.value = "";
   populateFormMultiselects(null);
 
-  // Set default status to Untested for a new recipe
-  const statusUntested = document.getElementById('form-status-untested');
-  if (statusUntested) statusUntested.checked = true;
+  // Set default status to Brak statusu (none) for a new recipe
+  const statusNone = document.getElementById('form-status-none');
+  if (statusNone) statusNone.checked = true;
 
   // Show import tab switcher for new recipe
   const switcher = document.getElementById('recipe-add-method-tabs');
@@ -1935,10 +1938,14 @@ function openEditModal(recipe) {
   elements.formTags.value = recipe.tags ? recipe.tags.join(', ') : '';
   const statusTested = document.getElementById('form-status-tested');
   const statusUntested = document.getElementById('form-status-untested');
+  const statusNone = document.getElementById('form-status-none');
   if (recipe.isTested) {
     if (statusTested) statusTested.checked = true;
-  } else {
+  } else if (recipe.toTest === true || recipe.toTest === undefined) {
+    // Old recipes without toTest field default to Untested (Do Przetestowania)
     if (statusUntested) statusUntested.checked = true;
+  } else {
+    if (statusNone) statusNone.checked = true;
   }
   elements.btnFormDelete.style.display = 'inline-flex'; // show delete for existing recipe
   
@@ -2076,6 +2083,7 @@ function handleFormSubmit(e) {
     .filter(tag => tag.length > 0);
   
   const isTested = document.getElementById('form-status-tested') ? document.getElementById('form-status-tested').checked : false;
+  const toTest = document.getElementById('form-status-untested') ? document.getElementById('form-status-untested').checked : false;
 
   const selectedDieta = Array.from(document.querySelectorAll('input[name="form-multiselect-dieta"]:checked')).map(cb => cb.value);
   const selectedSzybkosc = Array.from(document.querySelectorAll('input[name="form-multiselect-szybkosc"]:checked')).map(cb => cb.value);
@@ -2098,6 +2106,7 @@ function handleFormSubmit(e) {
           notes,
           tags: Array.from(new Set(tags)),
           isTested,
+          toTest,
           dieta: selectedDieta,
           szybkosc: selectedSzybkosc,
           pora_roku: selectedPoraRoku
@@ -2119,6 +2128,7 @@ function handleFormSubmit(e) {
       notes,
       tags: Array.from(new Set(tags)),
       isTested,
+      toTest,
       dieta: selectedDieta,
       szybkosc: selectedSzybkosc,
       pora_roku: selectedPoraRoku,
