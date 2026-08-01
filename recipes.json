@@ -237,10 +237,13 @@
     "notes": "Krewetki smaż krótko, aby nie były gumowate. Podawaj z chrupiącą bagietką.",
     "link": "",
     "isTested": true,
-    "category": "supper",
+    "category": "lunch",
     "createdAt": "2026-07-26T19:10:08.000Z",
     "tags": [],
-    "image": "images/custom_2836822dea.jpg"
+    "image": "images/custom_2836822dea.jpg",
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": []
   },
   {
     "id": "chinszczyzna",
