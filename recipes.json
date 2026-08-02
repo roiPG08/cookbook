@@ -1251,7 +1251,7 @@
     "title": "Krem z Papryki",
     "category": "lunch",
     "link": "",
-    "image": "",
+    "image": "images/custom_d92c987769.jpg",
     "ingredients": [
       "3 papryki",
       "4 korzenie pietruszki",
@@ -1281,5 +1281,39 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T14:26:17.141Z"
+  },
+  {
+    "id": "1785680913409",
+    "title": "Polędwiczki wieprzowe w kremowym sosie z whisky i suszonymi pomidorami",
+    "category": "lunch",
+    "link": "https://www.kwestiasmaku.com/przepis/pol%C4%99dwiczki-z-suszonymi-pomidorami",
+    "image": "",
+    "ingredients": [
+      "1 polędwica wieprzowa ok. 450 g",
+      "60 ml whisky* lub brandy lub wytrawnego wina (białego lub czerwonego)",
+      "8 kawałków suszonych pomidorów",
+      "250 ml wody",
+      "2 łyżki sosu sojowego",
+      "1/3 łyżeczki pieprzu cayenne lub ostrej papryki",
+      "150 ml śmietanki kremówki 30%",
+      "1 łyżeczka mąki ziemniaczanej",
+      "natka pietruszki"
+    ],
+    "steps": [
+      "Polędwicę opłukać i osuszyć, odciąć białą błonę na boku. Mięso pokroić ukośnie na 1 cm plasterki. Suszone pomidory pokroić na mniejsze kawałki, włożyć do małego garnka, wlać alkohol i zagotować. Po minucie gotowania odstawić z ognia.",
+      "Rozgrzać dużą patelnię z pokrywą lub rondel z grubym dnem. Wlać 2 łyżki oleju z suszonych pomidorów. Gdy olej będzie już gorący układać plasterki mięsa i smażyć przez ok. 2 - 3 minuty na złoty kolor. W międzyczasie doprawić solą morską (niezbyt dużo, bo sos sojowy jest słony) oraz pieprzem. Przewrócić na drugą stronę i powtórzyć smażenie.",
+      "Wlać gorącą wodę i sos sojowy, dodać pieprz cayenne. Przykryć i zagotować. Gotować pod przykryciem przez ok. 25 minut, do miękkości mięsa, w międzyczasie 1 - 2 razy mięso przewrócić.",
+      "Zdjąć pokrywę, dodać suszone pomidory wraz z płynem z gotowania i wymieszać. Dodać śmietankę, wymieszać potrząsając patelnią i gotować jeszcze przez ok. 5 minut. Na koniec posypać przez sitko mąką ziemniaczaną, wymieszać i zagotować. Odstawić z ognia i posypać posiekaną natką pietruszki."
+    ],
+    "notes": "* można pominąć i użyć wody w wersji bezalkoholowej\nwychodzi 4 porcje, po 390 kcal",
+    "tags": [
+      "przemek"
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T14:28:33.409Z"
   }
 ]
