@@ -1315,5 +1315,43 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T14:28:33.409Z"
+  },
+  {
+    "id": "1785682126754",
+    "title": "Pizza Najlepsza Przemka",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_f9e778df91.jpg",
+    "ingredients": [
+      "500 g mąki pszennej",
+      "333 ml wody (w temperaturze pokojowej)",
+      "1 opakowanie suchych drożdży (7 g)",
+      "10 g oliwy",
+      "1 łyżeczka soli (5 g)",
+      "sos pomidorowy",
+      "ser mozzarella (twardy w kostce lub rozdrobniony)",
+      "dowolne dodatki (np. szynka zwykła, świeża mozzarella w kulce, prosciutto, szwajcarka)"
+    ],
+    "steps": [
+      "ołącz w misce mąkę, wodę, suche drożdże, oliwę oraz sól (patrz wskazówka 1).",
+      "Wyrabiaj ciasto przez 7 minut metodą rozciągania i zawijania (od siebie i z powrotem, jakby rozdzierając ciasto), aby rozwinąć strukturę glutenu i napowietrzyć masę.",
+      "Uformuj ciasto w gładką kulkę, naciągając jego strukturę do wewnątrz z obu stron.",
+      "Przełóż kulkę do naoliwionej miski, przykryj folią spożywczą i odstaw do wyrośnięcia (w ciepłe miejsce na ten sam dzień lub do lodówki na wolne wyrastanie, aby wydobyć więcej smaku).",
+      "Wyciągnij wyrośnięte ciasto z miski (powinno być lekko lepkie) i przełóż na blat podsypany mąką (patrz wskazówka 2).",
+      "Obracaj ciasto oburącz palcami od góry, podziel je na dwie równe porcje i uformuj z nich spody do pizzy (patrz wskazówka 3).",
+      "Nałóż na spód niewielką ilość sosu pomidorowego z garnuszka oraz twardą mozzarellę (patrz wskazówka 4).",
+      "Dodaj standardowe dodatki (np. zwykłą szynkę) i wstaw pizzę do piekarnika rozgrzanego do najwyższej możliwej temperatury na funkcji termoobiegu (patrz wskazówka 5 i 6).",
+      "Piecz pizzę łącznie przez 7–8 minut (patrz wskazówka 7)."
+    ],
+    "notes": "1. Nie rób wcześniej rozczynu z drożdży.\n2. Nie wyrabiaj ciasta po raz drugi po wyrośnięciu, ponieważ zrobi się twarde jak kamień. Im mniej wyrabiania na końcowym etapie, tym bardziej napowietrzone i chrupkie będzie ciasto.\n3. Piecz pizzę bezpośrednio na kamieniu (nagrzewanym wcześniej przez co najmniej 1 godzinę) lub na specjalnej blasze do pizzy z dziurkami (np. Tefal), na której możesz od razu formować koło. Nie używaj papieru do pieczenia ani dużej, klasycznej blachy piekarnikowej.\n4. Uważaj z ilością sosu pomidorowego, aby nie zmoczyć ciasta.\n5. Włoskie wędliny, takie jak prosciutto czy szwajcarka, dodawaj do pizzy dopiero na ostatnią minutę pieczenia. Zwykłą szynkę możesz kłaść od samego początku.\n6. Świeżą mozzarellę w kulce pokrój wcześniej w plasterki i odsącz na ręczniku papierowym z nadmiaru wody, aby uniknąć efektu zupy na pizzy.\n7. Mozzarellę z kulki układaj na pizzy dopiero na ostatnie 1–2 minuty pieczenia, tylko do jej roztopienia.",
+    "tags": [
+      "przemek"
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T14:48:46.754Z"
   }
 ]
