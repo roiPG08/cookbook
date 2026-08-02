@@ -1506,5 +1506,78 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T15:18:12.765Z"
+  },
+  {
+    "id": "1785684325402",
+    "title": "Kurczak po prowansalsku",
+    "category": "lunch",
+    "link": "https://www.kwestiasmaku.com/przepis/kurczak-po-prowansalsku",
+    "image": "images/custom_c0a41fe3c8.jpg",
+    "ingredients": [
+      "700 g ud kurczaka (5 - 6 sztuk)*",
+      "sól i pieprz",
+      "3 łyżki oliwy",
+      "1 główka czosnku",
+      "1/4 młodej cebuli",
+      "150 g pomidorków koktajlowych",
+      "po kilka czarnych i zielonych oliwek",
+      "1 łyżka kaparów",
+      "1/3 szklanki białego wina**",
+      "kilka gałązek tymianku",
+      "1/2 cytryny"
+    ],
+    "steps": [
+      "Piekarnik nagrzać do 200 stopni C. Udka doprawić solą oraz pieprzem.",
+      "Na początku obsmażyć udka kurczaka: na patelni (np. żeliwnej, którą można wkładać do piekarnika) lub zwykłej patelni, z której potem przełożymy podsmażone udka do naczynia żaroodpornego. Na patelnię wlać oliwę i ułożyć uda skórką do dołu. Smażyć na większym ogniu przez około 4 minuty lub aż skórka będzie zrumieniona. Przewrócić na drugą stronę i ponowić podsmażanie.",
+      "Przewrócić udka znów skórką do góry, w środek włożyć przyciętą główkę czosnku, dodać posiekaną cebulę, pomidorki koktajlowe, pokrojone czarne oliwki i zielone w całości.",
+      "Dodać odsączone kapary i delikatnie wlać wino. Dodać gałązki tymianku i kawałki cytryny. Wstawić do nagrzanego piekarnika. Piec bez przykrycia przez ok. 45 minut.",
+      "Po upieczeniu najlepiej wycisnąć miękkie ząbki czosnku z łupinek i wymieszać z sosem."
+    ],
+    "notes": "* małych ud kurczaka bez nogi, bez podudzi (większe kawałki mięsa będą bowiem potrzebowały dłuższego czasu pieczenia)\n\n** białe wytrawne lub lekko słodkie, zwykłe lub bezalkoholowe np. prosecco 0%",
+    "tags": [],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T15:25:25.402Z"
+  },
+  {
+    "id": "1785684467736",
+    "title": "Racuchy z jabłkami",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_4dcce36d0e.jpg",
+    "ingredients": [
+      "1/2 kg mąki pszennej",
+      "50 g świeżych drożdży",
+      "1-2 łyżki cukru",
+      "1,5 szklanki letniego mleka",
+      "1 jajko",
+      "3-4 jabłka",
+      "cukier puder",
+      "szczypta soli",
+      "olej (do smażenia)",
+      "gorąca woda (w kubku)"
+    ],
+    "steps": [
+      "Mąkę przesiej do naczynia, dodaj szczyptę soli, wymieszaj. Pośrodku zrób wgłębienie, do którego wkrusz świeże drożdże. Zasyp je cukrem i zalej 1/2 szklanki letniego mleka. Odstaw na 15 min.",
+      "Po upływie 15 min dodaj resztę mleka i jajko. Wymieszaj.",
+      "Obierz jabłka i pokrój je w plasterki. Wrzuć owoce do ciasta i wymieszaj wszystko.",
+      "Odstaw na 1 do 1,5 godziny w ciepłe miejsce do wyrośnięcia.",
+      "Przygotuj kubek z gorącą wodą. Ciasto nabieraj łyżką. By się nie kleiło, za każdym razem najpierw maczaj ją w wodzie.",
+      "Ciasto smaż na rozgrzanym oleju z obu stron, aż uzyskasz złoty kolor. Gotowe do podania racuchy posyp cukrem pudrem."
+    ],
+    "notes": "",
+    "tags": [
+      "basia",
+      "rabczak"
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T15:27:47.736Z"
   }
 ]
