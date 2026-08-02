@@ -1177,5 +1177,109 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T13:44:17.286Z"
+  },
+  {
+    "id": "1785678375071",
+    "title": "Makaron wstążki z borowikami",
+    "category": "lunch",
+    "link": "https://www.kwestiasmaku.com/pasta/makarony_z_grzybami/pappardelle_z_borowikami/przepis.html",
+    "image": "images/custom_38e760fa2d.jpg",
+    "ingredients": [
+      "125 g makaronu Pappardelle",
+      "50 g masła",
+      "2 ząbki czosnku",
+      "150 - 200 g pokrojonych borowików, świeżych lub mrożonych",
+      "1/4 szklanki białego wina",
+      "4 łyżki posiekanego szczypiorku",
+      "4 łyżki posiekanej natki pietruszki",
+      "tarty twardy ser typu Parmezan, Dziugas, Grana Padano",
+      "sól i pieprz"
+    ],
+    "steps": [
+      "Grzyby oczyścić, umyć, osuszyć i pokroić w plasterki. Mrożone grzyby wyłożyć na sitko i kilka razy przelać ciepłą wodą w celu ich rozmrożenia, odcedzić i w razie potrzeby pokroić na plasterki.",
+      "Zagotować osoloną wodę w dużym garnku, włożyć makaron i gotować aż będzie al dente. Odcedzić, zachowując trochę wody z makaronu.",
+      "Rozgrzać połowę masła na większej patelni z przykrywką, dodać grzyby i smażyć przez około 3 - 4 minuty, mieszając od czasu do czasu, w połowie smażenia dodać czosnek. Grzyby i czosnek lekko zrumienić.",
+      "Doprawić solą oraz pieprzem, wlać wino, przykryć i dusić przez kilka minut. Na patelnię z grzybami włożyć makaron, wymieszać, następnie dodać drugą połowę masła i jeszcze raz wymieszać, podgrzewając całe danie.",
+      "Posypać szczypiorkiem oraz natką pietruszki, dodać ewentualnie trochę wody z makaronu i doprawić solą oraz pieprzem. Rozłożyć do głębokich talerzy i posypać Parmezanem."
+    ],
+    "notes": "",
+    "tags": [],
+    "isTested": false,
+    "toTest": true,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [
+      "Jesień",
+      "Zima"
+    ],
+    "createdAt": "2026-08-02T13:46:15.071Z"
+  },
+  {
+    "id": "1785680282978",
+    "title": "Proziaki",
+    "category": "breakfast",
+    "link": "",
+    "image": "images/custom_d14bf45e71.jpg",
+    "ingredients": [
+      "300 ml kefiru",
+      "350 g maki pszennej",
+      "1 czubata łyżeczka sody oczyszczonej",
+      "sól"
+    ],
+    "steps": [
+      "Wymieszaj wszystkie składniki na bardzo delikatne ciasto.",
+      "Gdy ciasto się zbije, oprósz dość sporo stolnicę mąką, rozwałkuj ciasto w rulon i podziel na 6–8 porcji.",
+      "Nabierz mąkę na dłoń, weź kawałek ciasta, podsyp delikatnie mąką z jednej i drugiej strony oraz uformuj kształt proziaka.",
+      "Upewnij się, że na powierzchni proziaków nie zostało zbyt dużo mąki, aby nie paliła się podczas smażenia.",
+      "Wrzuć proziaki na rozgrzaną suchą patelnię lub na patelnię z niewielką ilością oleju.",
+      "Smaż z obu stron do zarumienienia."
+    ],
+    "notes": "",
+    "tags": [
+      "basia",
+      "rabczak"
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T14:18:02.978Z"
+  },
+  {
+    "id": "1785680777141",
+    "title": "Krem z Papryki",
+    "category": "lunch",
+    "link": "",
+    "image": "",
+    "ingredients": [
+      "3 papryki",
+      "4 korzenie pietruszki",
+      "4 ziemniaki",
+      "2 ząbki czosnku",
+      "oliwa z oliwek",
+      "bulion warzywny (z warzyw lub z kostki)",
+      "sól",
+      "pieprz"
+    ],
+    "steps": [
+      "Pokrój w kostkę papryki, korzenie pietruszki oraz ziemniaki.",
+      "Rozgrzej oliwę z oliwek na patelni, dodaj czosnek i smaż warzywa na dużym ogniu do momentu, aż lekko się przypieką, a na papryce pojawi się ciemna skórka.",
+      "Zdejmij warzywa z ognia i przełóż je do garnka.",
+      "Zalej całość bulionem warzywnym i gotuj, aż wszystkie warzywa będą miękkie.",
+      "Dopraw solą oraz pieprzem.",
+      "Zblenduj wszystko na gładki krem."
+    ],
+    "notes": "",
+    "tags": [
+      "mama",
+      "g."
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T14:26:17.141Z"
   }
 ]
