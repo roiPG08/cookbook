@@ -314,10 +314,11 @@
     "category": "lunch",
     "createdAt": "2026-07-26T19:13:00.000Z",
     "tags": [],
-    "image": "images/custom_1c9942eb9d.jpg",
+    "image": "images/custom_dfaa64513f.jpg",
     "dieta": [],
     "szybkosc": [],
-    "pora_roku": []
+    "pora_roku": [],
+    "toTest": false
   },
   {
     "id": "napar_korzenny",
@@ -1284,10 +1285,10 @@
   },
   {
     "id": "1785680913409",
-    "title": "Polędwiczki wieprzowe w kremowym sosie z whisky i suszonymi pomidorami",
+    "title": "Polędwiczki wieprzowe w sosie z whisky i suszonymi pomidorami",
     "category": "lunch",
     "link": "https://www.kwestiasmaku.com/przepis/pol%C4%99dwiczki-z-suszonymi-pomidorami",
-    "image": "",
+    "image": "images/custom_c6ead0760a.jpg",
     "ingredients": [
       "1 polędwica wieprzowa ok. 450 g",
       "60 ml whisky* lub brandy lub wytrawnego wina (białego lub czerwonego)",
@@ -1353,5 +1354,105 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T14:48:46.754Z"
+  },
+  {
+    "id": "1785683130498",
+    "title": "Makaron soba stir fry z wołowiną",
+    "category": "lunch",
+    "link": "https://kuchnialidla.pl/soba-stir-fry-z-wolowina",
+    "image": "images/custom_01d597cacd.jpg",
+    "ingredients": [
+      "ocet balsamiczny - 2 łyżki",
+      "pieprz biały - 1 pieprz biały",
+      "cebula czerwona - 2 cebula czerwona",
+      "cukinia - 1 cukinia",
+      "pieprz czarny - 1 pieprz czarny",
+      "papryczka chili czerwona - 0,5 papryczka chili czerwona",
+      "imbir świeży - 10 imbir świeży",
+      "miód - 1 miód",
+      "sos sojowy - 2 łyżki",
+      "sól - 1 sól",
+      "olej sezamowy - 2 łyżeczki",
+      "kolendra świeża - 22 kolendra świeża",
+      "limonka - 0,5 limonka",
+      "polędwica wołowa - 500 polędwica wołowa",
+      "makaron soba - 300 makaron soba",
+      "kiełki fasoli mung - 100 kiełki fasoli mung",
+      "ząbek czosnku - 2 ząbek czosnku",
+      "kolendra świeża - 2 kolendra świeża",
+      "limonka - 1 limonka"
+    ],
+    "steps": [
+      "* Gotowanie makaronu soba",
+      "Ugotuj makaron soba w lekko osolonej wodzie według wskazówek na opakowaniu (ok. 3 minuty).",
+      "Odcedź makaron na durszlaku i skrop olejem.",
+      "* Smażenie wołowiny",
+      "Umyj mięso, osusz, oczyść i pokrój w plastry o szerokości ok. 1,5 cm.",
+      "Dopraw wołowinę z obu stron białym pieprzem.",
+      "Smaż krótko (ok. 40 sekund z każdej strony) na mocno rozgrzanej patelni, nie mieszając i nie dotykając mięsa.",
+      "Przełóż mięso na talerz i odstaw do wystygnięcia.",
+      "*Smażenie warzyw",
+      "Pozbaw cukinię gniazd nasiennych, pokrój na większe kawałki i usmaż na tej samej patelni po mięsie.",
+      "Dopraw cukinię solą oraz pieprzem, po czym przełóż na talerz do wystygnięcia.",
+      "Pokrój cebulę w ćwiartki, rozdziel na pojedyncze warstwy i smaż krótko (ok. 20 sekund) na patelni po mięsie.",
+      "Przełóż cebulę na talerz i odstaw do wystygnięcia.",
+      "* Przygotowanie sosu",
+      "Połącz w miseczce ocet balsamiczny, sos sojowy, olej sezamowy, miód, drobno posiekany lub starty na tarce imbir oraz czosnek pokrojony w plasterki, a następnie dokładnie wymieszaj.",
+      "Przelej sos na lekko przestudzoną patelnię i dodaj posiekaną papryczkę chili.",
+      "Podgrzewaj całość, aż płyn odparuje, a sos zgęstnieje.",
+      "* Duszenie mięsa i warzyw",
+      "Dodaj na patelnię przesmażone i wystudzone mięso, cukinię oraz cebulę.",
+      "Duś całość, aż wołowina będzie odpowiednio miękka, a warzywa pozostaną chrupiące.",
+      "Pod koniec duszenia dodaj posiekaną kolendrę, kiełki fasoli mung oraz skórkę startą z limonki.",
+      "Wymieszaj składniki i zdejmij patelnię z ognia.",
+      "* Serwowanie",
+      "Przełóż ugotowany makaron na głębokie talerze.",
+      "Wyłóż warzywa i mięso na porcje makaronu, a całość polej sosem z patelni.",
+      "Zdekoruj danie listkami świeżej kolendry i podawaj z cząstkami limonki."
+    ],
+    "notes": "Wartości odżywcze\nWartość energetyczna na całe danie\t1836,1 kcal\nWartość energetyczna na 1 porcję\t459 kcal\nTłuszcz\t5,5 g\nWęglowodany\t64,5 g\nBłonnik\t3,3 g\nBiałko\t38 g",
+    "tags": [
+      "przemek"
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T15:05:30.498Z"
+  },
+  {
+    "id": "1785683637641",
+    "title": "Pyszna Ryba Miruna smażona",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_38d403d512.jpg",
+    "ingredients": [
+      "mrożona ryba miruna dobrej jakości 1kg",
+      "sól",
+      "pieprz cytrynowy",
+      "jajko",
+      "mąka pszenna",
+      "olej (do smażenia)"
+    ],
+    "steps": [
+      "Odstaw mrożoną rybę na około 2 godziny, aż się rozmrozi.",
+      "Pokrój rybę na porcje po około 200 g (patrz wskazówka 1).",
+      "Dopraw porcje ryby solą oraz pieprzem cytrynowym.",
+      "Roztrzep jajko w głębokim talerzu lub misce tak jak do schabowych.",
+      "Panieruj rybę, mocząc każdy kawałek najpierw w jajku, a następnie w mące pszennej.",
+      "Smaż rybę na mocno rozgrzanym oleju z obu stron, aż ładnie się zarumieni."
+    ],
+    "notes": "Z takiej porcji wychodzi 6 kawałków.\nWybierz dobrej jakości rybę bez ości, aby po pokrojeniu i usmażeniu porcje były od razu gotowe do podania.",
+    "tags": [
+      "mama",
+      "g."
+    ],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T15:13:57.641Z"
   }
 ]
