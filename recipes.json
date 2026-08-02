@@ -1034,5 +1034,42 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T10:32:02.366Z"
+  },
+  {
+    "id": "1785667194764",
+    "title": "Spaghetti di nero",
+    "category": "lunch",
+    "link": "",
+    "image": "images/custom_f3b2dad239.jpg",
+    "ingredients": [
+      "180 g czarnego makaronu (spaghetti al nero di sepia)",
+      "100 g krewetek",
+      "2 łyżki oliwy extra",
+      "2 ząbki czosnku",
+      "papryczka chili",
+      "cebula połowa",
+      "sól, pieprz, oregano,",
+      "3 łyżki białego wina",
+      "2 łyżki tartego parmezanu lub grana padano"
+    ],
+    "steps": [
+      "Oczyszczone krewetki zamarynuj wcześniej w soku z cytryny, soli, pieprzu oraz oliwie z oliwek.",
+      "Ugotuj makaron nero w osolonej wodzie.",
+      "Posiekaj czosnek, cebule, odrobine papryczki chili",
+      "Na patelni rozgrzej oliwę z oliwek, dodaj posiekany czosnek, pokrojoną w kostkę cebulę i odrobinę papryczki chili. Podsmażaj całość przez chwilę.",
+      "Na patelnię wrzuć zamarynowane krewetki oraz dodaj łyżkę masła i pomidorki koktajlowa, smaż 3 minuty",
+      "Po 3 minutach smażenia krewetek na dużym ogniu wlej około 80 ml wina i pozwól mu odparować.",
+      "Dodaj jeszcze trochę masła i redukuj sos przez krótką chwilę.",
+      "Dodaj na patelnię ugotowany makaron nero i dokładnie wymieszaj z sosem.",
+      "Przełóż danie na talerz, posyp startym parmezanem i świeżą kolendrą."
+    ],
+    "notes": "Jak nie ma kolendry to natka pietruszki",
+    "tags": [],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-02T10:39:54.764Z"
   }
 ]
