@@ -1579,5 +1579,42 @@
     "szybkosc": [],
     "pora_roku": [],
     "createdAt": "2026-08-02T15:27:47.736Z"
+  },
+  {
+    "id": "1786175661608",
+    "title": "Wytrawne gofry lub placki z szynką i serem",
+    "category": "breakfast",
+    "link": "https://cookidoo.pl/recipes/recipe/pl/r817710",
+    "image": "images/custom_c5be3600ea.jpg",
+    "ingredients": [
+      "120 g szynki gotowanej, wędzonej",
+      "120 g sera żółtego",
+      "2 jajka",
+      "230 g mąki pszennej",
+      "300 g mleka",
+      "50 g oleju",
+      "10 g cukru",
+      "1 łyżeczka proszku do pieczenia",
+      "1 łyżeczka oregano, suszonego",
+      "1/2 łyżeczki soli",
+      "1/4 lyżeczki pieprzu czarnego, mielonego",
+      "olej do smazenia"
+    ],
+    "steps": [
+      "Odważyć szynke i ser - rozdrobnić na drobne (ale nie drobniutkie)i ostawić",
+      "Do naczynia wbić jajka, dodać mąkę, mleko, olej, cukier, proszek do pieczenia, oregano, czosnek, sól i pieprz, wymieszać",
+      "Dodać rozdrobniony ser i szynkę, wymieszać 5 s//obr. 3. Przełożyć do innego naczynia.",
+      "Rozgrzać gofrownicę, za pomocą pędzelka natłuścić olejem powierzchnię grzejną. Ciasto można również usmażyć w formie placków na kuchence, na patelni natłuszczonej niewielką ilością oleju. Nakładać po 1-2 łyżki ciasta na porcję, aby uzyskać niewielkie, okrągłe gofry lub placki.",
+      "Piec lub smażyć ok. 3 min, aż do uzyskania złotobrązowego koloru.",
+      "Upieczone gofry podważyć ostrożnie nożem, wyjąć i odstawić na kratkę do studzenia. Wytrawne gofry lub placki podawać bezpośrednio po przygotowaniu lub zapakować w formie lunchboxu (patrz wskazówka"
+    ],
+    "notes": "Można w gofrownicy lub na patelni\n1 gofr = 223 kcal",
+    "tags": [],
+    "isTested": true,
+    "toTest": false,
+    "dieta": [],
+    "szybkosc": [],
+    "pora_roku": [],
+    "createdAt": "2026-08-08T07:54:21.608Z"
   }
 ]
